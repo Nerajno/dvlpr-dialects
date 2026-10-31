@@ -1,0 +1,7 @@
+/* developingdvlpr token spine — self-hosted faces for --font-sans,
+   --font-display and --font-mono. Import once per site, before tokens.css. */
+@import "@fontsource-variable/plus-jakarta-sans/index.css";
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/700.css";

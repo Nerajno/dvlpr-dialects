@@ -1,0 +1,23 @@
+/* developingdvlpr token spine — semantic utility classes.
+   Identical on every surface; values come from tokens.css.
+   Tailwind projects can use tailwind-preset.cjs instead (same class names, plus variants). */
+.bg-surface      { background-color: var(--bg); }
+.bg-surface-alt  { background-color: var(--bg-alt); }
+.bg-surface-card { background-color: var(--bg-card); }
+.bg-elevated     { background-color: var(--bg-elevated); }
+
+.text-strong     { color: var(--text-strong); }
+.text-body       { color: var(--text-body); }
+.text-soft       { color: var(--text-soft); }
+.text-muted      { color: var(--text-muted); }
+
+.text-accent     { color: var(--accent); }
+.text-accent-hover { color: var(--accent-hover); }
+.bg-accent       { background-color: var(--accent); }
+.bg-accent-soft  { background-color: var(--accent-soft); }
+
+.border-surface      { border-color: var(--border); }
+.border-surface-strong { border-color: var(--border-strong); }
+
+.shadow-card { box-shadow: var(--shadow-md); }
+.shadow-card-lg { box-shadow: var(--shadow-lg); }

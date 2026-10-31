@@ -1,0 +1,26 @@
+/* developingdvlpr token spine — syntax colours for Shiki's css-variables theme.
+   Astro: markdown.shikiConfig = { theme: "css-variables" }.
+   keyword = the surface's accent; string / function / constant = the other
+   three surfaces' accents, so no role ever matches the keyword colour.
+   Every role is >=5.4:1 on --bg-alt in all four surfaces, light and dark. */
+:root {
+  --astro-code-foreground: var(--text-body);
+  --astro-code-background: var(--bg-alt);
+  --astro-code-token-keyword: var(--accent);
+  --astro-code-token-link: var(--accent);
+  --astro-code-token-parameter: var(--text-strong);
+  --astro-code-token-punctuation: var(--text-soft);
+  --astro-code-token-comment: var(--text-muted);
+  --astro-code-token-string: var(--dial-learn);
+  --astro-code-token-string-expression: var(--dial-learn);
+  --astro-code-token-function: var(--dial-teach);
+  --astro-code-token-constant: var(--dial-build);
+}
+html[data-surface="learn"] {
+  --astro-code-token-string: var(--dial-portfolio);
+  --astro-code-token-string-expression: var(--dial-portfolio);
+}
+html[data-surface="teach"] { --astro-code-token-function: var(--dial-portfolio); }
+html[data-surface="build"] { --astro-code-token-constant: var(--dial-portfolio); }
+
+.astro-code { border: 1px solid var(--border); }

@@ -1,0 +1,211 @@
+/* ════════════════════════════════════════════════════════════════
+   developingdvlpr.com — Shared Token Spine
+   One token layer, four dialects.
+   Class names stay constant across every surface and both color
+   modes. Only the five `--dial-*` variables change between surfaces.
+
+   Dials:
+     --dial-font         sans | mono
+     --dial-type-scale   density multiplier (applied to root font-size)
+     --dial-accent-hue   accent hue, deg
+     --dial-accent-chroma  accent saturation (0.03 near-neutral → 0.16 high)
+     --dial-accent-light accent lightness in light mode
+   ════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────────────
+   FONTS
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
+    Menlo, Consolas, "Liberation Mono", monospace;
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman",
+    serif;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DIAL DEFAULTS (portfolio — the front door)
+   Near-neutral accent (hue 265), roomy sans at 1.125×.
+   ──────────────────────────────────────────────────────────────── */
+:root,
+:root[data-surface="portfolio"] {
+  --dial-font: sans;
+  --dial-type-scale: 1.125;
+  --dial-accent-hue: 265;
+  --dial-accent-chroma: 0.035;
+  --dial-accent-light: 0.5;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DIALECT: learn — the notebook
+   Tight mono at 0.875×, ochre ink.
+   ──────────────────────────────────────────────────────────────── */
+:root[data-surface="learn"] {
+  --dial-font: mono;
+  --dial-type-scale: 0.875;
+  --dial-accent-hue: 72;
+  --dial-accent-chroma: 0.1;
+  --dial-accent-light: 0.48;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DIALECT: teach — the lecture
+   Room for reading sans at 1×, chalkboard teal, Fraunces headings.
+   ──────────────────────────────────────────────────────────────── */
+:root[data-surface="teach"] {
+  --dial-font: sans;
+  --dial-type-scale: 1;
+  --dial-accent-hue: 168;
+  --dial-accent-chroma: 0.09;
+  --dial-accent-light: 0.48;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DIALECT: build — the workbench
+   Tight mono at 0.875×, bright workshop amber.
+   ──────────────────────────────────────────────────────────────── */
+:root[data-surface="build"] {
+  --dial-font: mono;
+  --dial-type-scale: 0.875;
+  --dial-accent-hue: 38;
+  --dial-accent-chroma: 0.16;
+  --dial-accent-light: 0.5;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DIAL → FACE MAPPING (derived, authored once in the spine)
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  --font-body: var(--font-sans);
+  --font-heading: var(--font-sans);
+}
+:root[data-surface="learn"],
+:root[data-surface="build"] {
+  --font-body: var(--font-mono);
+  --font-heading: var(--font-mono);
+}
+:root[data-surface="teach"] {
+  --font-heading: var(--font-display);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DENSITY — root font-size is scaled by the dial so every rem-based
+   token (Tailwind spacing, type) inherits the dialect's density.
+   ──────────────────────────────────────────────────────────────── */
+html {
+  font-size: calc(100% * var(--dial-type-scale));
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LIGHT MODE — shared semantic tokens, derived from the dials
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --bg:              oklch(0.985 0.006 var(--dial-accent-hue));
+  --bg-alt:          oklch(0.965 0.008 var(--dial-accent-hue));
+  --bg-card:         oklch(0.998 0.004 var(--dial-accent-hue));
+  --bg-elevated:     oklch(1 0 0);
+
+  /* Text */
+  --text-strong:     oklch(0.24 0.02 var(--dial-accent-hue));
+  --text-body:       oklch(0.34 0.016 var(--dial-accent-hue));
+  --text-soft:       oklch(0.46 0.014 var(--dial-accent-hue));
+  --text-muted:      oklch(0.5 0.012 var(--dial-accent-hue));
+
+  /* Borders */
+  --border:          oklch(0.89 0.012 var(--dial-accent-hue));
+  --border-strong:   oklch(0.63 0.016 var(--dial-accent-hue)); /* ≥3:1 on every light ground */
+
+  /* Accent — the dials' color identity */
+  --accent:          oklch(var(--dial-accent-light) var(--dial-accent-chroma) var(--dial-accent-hue));
+  --accent-hover:    oklch(calc(var(--dial-accent-light) - 0.06) var(--dial-accent-chroma) var(--dial-accent-hue));
+  --accent-soft:     oklch(calc(var(--dial-accent-light) + 0.36) calc(var(--dial-accent-chroma) * 0.5) var(--dial-accent-hue));
+  --focus:           var(--accent);
+
+  /* Semantic statuses (light) */
+  --success:         oklch(0.62 0.15 152);
+  --success-soft:    oklch(0.62 0.15 152 / 0.15);
+  --warning:         oklch(0.74 0.14 85);
+  --warning-soft:    oklch(0.74 0.14 85 / 0.15);
+  --danger:          oklch(0.55 0.17 27);
+  --danger-soft:     oklch(0.55 0.17 27 / 0.15);
+  --info:            oklch(0.62 0.12 230);
+  --info-soft:       oklch(0.62 0.12 230 / 0.15);
+
+  /* Shadows — tinted with the dialect hue */
+  --shadow-sm: 0 1px 3px 0 oklch(0.2 0.04 var(--dial-accent-hue) / 0.08);
+  --shadow-md: 0 4px 12px 0 oklch(0.2 0.04 var(--dial-accent-hue) / 0.1),
+    0 1px 4px 0 oklch(0.2 0.04 var(--dial-accent-hue) / 0.06);
+  --shadow-lg: 0 10px 32px 0 oklch(0.2 0.04 var(--dial-accent-hue) / 0.12),
+    0 2px 8px 0 oklch(0.2 0.04 var(--dial-accent-hue) / 0.06);
+
+  /* Radius & motion — constant across surfaces */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.2s ease-out;
+  --transition-slow: 0.3s ease-out;
+
+  color-scheme: light;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DARK MODE — same dials, inverted lightness
+   ──────────────────────────────────────────────────────────────── */
+.dark {
+  --bg:                oklch(0.16 0.01 var(--dial-accent-hue));
+  --bg-alt:            oklch(0.19 0.012 var(--dial-accent-hue));
+  --bg-card:           oklch(0.21 0.014 var(--dial-accent-hue));
+  --bg-elevated:       oklch(0.23 0.014 var(--dial-accent-hue));
+
+  --text-strong:       oklch(0.95 0.01 var(--dial-accent-hue));
+  --text-body:         oklch(0.85 0.012 var(--dial-accent-hue));
+  --text-soft:         oklch(0.72 0.012 var(--dial-accent-hue));
+  --text-muted:        oklch(0.7 0.012 var(--dial-accent-hue));
+
+  --border:            oklch(0.28 0.012 var(--dial-accent-hue));
+  --border-strong:     oklch(0.53 0.016 var(--dial-accent-hue)); /* ≥3:1 on every dark ground */
+
+  --accent:            oklch(calc(var(--dial-accent-light) + 0.24) calc(var(--dial-accent-chroma) + 0.02) var(--dial-accent-hue));
+  --accent-hover:      oklch(calc(var(--dial-accent-light) + 0.3) calc(var(--dial-accent-chroma) + 0.02) var(--dial-accent-hue));
+  --accent-soft:       oklch(calc(var(--dial-accent-light) + 0.08) calc(var(--dial-accent-chroma) * 0.6) var(--dial-accent-hue));
+  --focus:             var(--accent);
+
+  --success:           oklch(0.72 0.14 152);
+  --success-soft:      oklch(0.72 0.14 152 / 0.15);
+  --warning:           oklch(0.8 0.13 85);
+  --warning-soft:      oklch(0.8 0.13 85 / 0.15);
+  --danger:            oklch(0.68 0.16 27);
+  --danger-soft:       oklch(0.68 0.16 27 / 0.15);
+  --info:              oklch(0.72 0.12 230);
+  --info-soft:         oklch(0.72 0.12 230 / 0.15);
+
+  --shadow-sm: 0 1px 3px 0 oklch(0.02 0.02 var(--dial-accent-hue) / 0.5);
+  --shadow-md: 0 4px 12px 0 oklch(0.02 0.02 var(--dial-accent-hue) / 0.55),
+    0 1px 4px 0 oklch(0.02 0.02 var(--dial-accent-hue) / 0.4);
+  --shadow-lg: 0 10px 32px 0 oklch(0.02 0.02 var(--dial-accent-hue) / 0.6),
+    0 2px 8px 0 oklch(0.02 0.02 var(--dial-accent-hue) / 0.4);
+
+  color-scheme: dark;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CROSS-SURFACE ACCENTS — each surface's accent, pinned so any
+   surface can point at another (cross-links, surface switchers,
+   code highlighting). Same derivation as --accent, resolved per mode.
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  --dial-portfolio: oklch(0.5 0.035 265);
+  --dial-learn: oklch(0.48 0.1 72);
+  --dial-teach: oklch(0.48 0.09 168);
+  --dial-build: oklch(0.5 0.16 38);
+}
+.dark {
+  --dial-portfolio: oklch(0.74 0.055 265);
+  --dial-learn: oklch(0.72 0.12 72);
+  --dial-teach: oklch(0.72 0.11 168);
+  --dial-build: oklch(0.74 0.18 38);
+}

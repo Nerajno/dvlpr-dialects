@@ -1,0 +1,26 @@
+{
+  "name": "@nerajno/dialects",
+  "version": "0.1.0",
+  "description": "The developingdvlpr.com token spine: one OKLCH token layer, four surface dialects (portfolio, learn, teach, build), light and dark.",
+  "files": ["tokens.css", "utilities.css", "code.css", "fonts.css", "theme-init.js", "tailwind-preset.cjs"],
+  "style": "tokens.css",
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./utilities.css": "./utilities.css",
+    "./code.css": "./code.css",
+    "./fonts.css": "./fonts.css",
+    "./theme-init.js": "./theme-init.js",
+    "./tailwind-preset": "./tailwind-preset.cjs",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8"
+  },
+  "peerDependencies": { "tailwindcss": "^3.4.0" },
+  "peerDependenciesMeta": { "tailwindcss": { "optional": true } },
+  "repository": { "type": "git", "url": "git+https://github.com/Nerajno/dvlpr-dialects.git" },
+  "author": "Nerando Johnson (https://developingdvlpr.com)",
+  "keywords": ["design-tokens", "css", "oklch", "tailwind", "astro"]
+}
