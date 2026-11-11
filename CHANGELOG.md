@@ -5,6 +5,7 @@
 - New `--accent-2` and `--accent-2-soft`: a second accent for each surface, driven by two new dials (`--dial-accent2-hue`, `--dial-accent2-chroma`). Portfolio gets indigo (same hue, more colour), learn plum (triadic), teach raspberry (complement) and build blueprint (complement).
 - `code.css`: strings now use the surface's `--accent-2` instead of another surface's accent.
 - New utilities `.text-accent-2` and `.bg-accent-2-soft`, and `accent-2` / `accent-2-soft` in the Tailwind preset.
+- Style guide favicon: the four surface accents in a 2×2 grid (`favicon.svg`, with dark-tab colours), plus `favicon-32.png` and `apple-touch-icon.png`.
 - Status colours moved away from the surface accents: success 152 → 145, warning 85 → 95, danger 27 → 22, info 230 → 240.
 - New `--on-success`, `--on-warning`, `--on-danger` and `--on-info` text colours, at least 4.6:1 on their fill. Fixes the dark-mode error pill, which was 3.1:1 with white text.
 - New `.status` pill in `utilities.css` with a marker shape per status (circle, triangle, square, diamond), so status never relies on hue alone.
