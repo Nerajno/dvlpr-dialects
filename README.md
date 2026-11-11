@@ -11,6 +11,17 @@ Every surface (portfolio, learn, teach, build) uses the same semantic token name
 | `teach` (blog, slides) | the lecture | Plus Jakarta Sans, Fraunces headings | 1× | chalkboard teal (hue 168) |
 | `build` | the workbench | JetBrains Mono | 0.875× | workshop orange (hue 38) |
 
+### Second accent
+
+Each surface also has `--accent-2`, set by two more dials (`--dial-accent2-hue`, `--dial-accent2-chroma`) and picked with a colour-theory rule. Use it for supporting details: tags, highlights, code strings, a second chart series. Links, buttons and focus stay on `--accent`, so there's still one action colour per page.
+
+| Surface | `--accent-2` | Rule |
+|---|---|---|
+| `portfolio` | indigo (hue 265, chroma 0.13) | monochrome: same hue, more colour |
+| `learn` | plum (hue 312) | triadic: highlighter on the notebook |
+| `teach` | raspberry (hue 350) | complement: pink chalk on the chalkboard |
+| `build` | blueprint (hue 225, chroma 0.09) | complement: blueprint and safety orange |
+
 ## See it
 
 The style guide shows every token, type style and component on all four surfaces, in light and dark: **https://nerajno.github.io/dvlpr-dialects/** (built from `index.html`; enable GitHub Pages on `main`, root folder).
@@ -61,7 +72,7 @@ a:hover { color: var(--accent-hover); }
 module.exports = { presets: [require("@nerajno/dialects/tailwind-preset")], /* … */ };
 ```
 
-**Code blocks** (Astro). Set `markdown.shikiConfig = { theme: "css-variables" }` and import `code.css`. Keywords take the surface's accent, while strings, functions and constants take the other three surfaces' accents.
+**Code blocks** (Astro). Set `markdown.shikiConfig = { theme: "css-variables" }` and import `code.css`. Keywords take the surface's accent and strings take its `--accent-2`, while functions and constants take other surfaces' accents.
 
 **No build step** (Jekyll and other static sites). Link the files from jsDelivr at a pinned tag, then add the `<script>` from step 2 inline:
 
@@ -80,6 +91,7 @@ module.exports = { presets: [require("@nerajno/dialects/tailwind-preset")], /* �
 | Text | `--text-strong` `--text-body` `--text-soft` `--text-muted` |
 | Borders | `--border` (decorative hairline) · `--border-strong` (control edges, ≥3:1) |
 | Accent | `--accent` `--accent-hover` `--accent-soft` `--focus` |
+| Second accent | `--accent-2` `--accent-2-soft` |
 | Cross-surface | `--dial-portfolio` `--dial-learn` `--dial-teach` `--dial-build` |
 | Status | `--success` `--warning` `--danger` `--info`, each with a `-soft` version |
 | Fonts | `--font-body` `--font-heading` (resolved per surface) · `--font-sans` `--font-display` `--font-mono` |
@@ -91,6 +103,7 @@ module.exports = { presets: [require("@nerajno/dialects/tailwind-preset")], /* �
 - All four text tokens and `--accent` reach at least 4.5:1 on `--bg`, `--bg-alt` and `--bg-card` in every surface and mode.
 - `--border-strong` reaches at least 3:1 on every background.
 - `--border` is decorative only, at about 1.3:1.
+- `--accent-2` reaches at least 5.2:1 on every background in light mode and 7.2:1 in dark, and at least 4.9:1 on `--accent-2-soft`.
 - In dark mode, `--accent-soft` doesn't hold body text (the best text token reaches about 3.8:1), so use it only as a fill there.
 
 ## Releasing
