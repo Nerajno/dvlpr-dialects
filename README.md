@@ -209,10 +209,10 @@ The cross-surface tokens (`--dial-portfolio` and the rest) equal each surface's 
 
 | Token | Light | Dark | Marker |
 |---|---|---|---|
-| `--success` | `oklch(0.62 0.15 145)` `#409D48` | `oklch(0.72 0.14 145)` `#67BB6B` | circle |
-| `--warning` | `oklch(0.76 0.14 95)` `#CDAF33` | `oklch(0.82 0.13 95)` `#DEC358` | triangle |
-| `--danger` | `oklch(0.55 0.18 22)` `#C5353E` | `oklch(0.68 0.17 22)` `#EF6567` | square |
-| `--info` | `oklch(0.62 0.12 240)` `#338FC7` | `oklch(0.72 0.12 240)` `#55AEE8` | diamond |
+| `--success` | `oklch(0.62 0.15 145)` `HEX: #409D48` | `oklch(0.72 0.14 145)` `HEX: #67BB6B` | circle |
+| `--warning` | `oklch(0.76 0.14 95)` `HEX: #CDAF33` | `oklch(0.82 0.13 95)` `HEX: #DEC358` | triangle |
+| `--danger` | `oklch(0.55 0.18 22)` `HEX: #C5353E` | `oklch(0.68 0.17 22)` `HEX: #EF6567` | square |
+| `--info` | `oklch(0.62 0.12 240)` `HEX: #338FC7` | `oklch(0.72 0.12 240)` `HEX: #55AEE8` | diamond |
 
 A few vivid values sit just outside sRGB (build's dark `--accent`, for example), so their hex is the clipped nearest match and looks very slightly duller than the oklch original in a wide-gamut browser.
 
