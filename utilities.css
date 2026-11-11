@@ -15,6 +15,8 @@
 .text-accent-hover { color: var(--accent-hover); }
 .bg-accent       { background-color: var(--accent); }
 .bg-accent-soft  { background-color: var(--accent-soft); }
+.text-accent-2   { color: var(--accent-2); }
+.bg-accent-2-soft { background-color: var(--accent-2-soft); }
 
 .border-surface      { border-color: var(--border); }
 .border-surface-strong { border-color: var(--border-strong); }

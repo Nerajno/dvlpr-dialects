@@ -139,6 +139,9 @@
   .status.err { color: #fff; background: var(--danger); }
   .dark .status.ok { color: #052014; }
   .dark .status.warn { color: #241800; }
+  .tag2 { font: 500 .75rem/1.5 var(--font-mono); padding: .125rem .5rem; border-radius: 6px; color: var(--accent-2); background: var(--accent-2-soft); }
+  .tag2.outline { background: transparent; border: 1px solid var(--accent-2); }
+  mark.hl { background: var(--accent-2-soft); color: var(--accent-2); padding: 0 .2em; border-radius: 3px; }
   .field { display: grid; gap: .35rem; }
   .field label { font-weight: 600; color: var(--text-strong); font-size: .9375rem; }
   .field input { font: inherit; color: var(--text-strong); background: var(--bg-card); border: 1px solid var(--border-strong);
@@ -198,7 +201,7 @@
   <div class="hero">
     <p class="eyebrow">developingdvlpr.com · token spine</p>
     <h1>One token layer,<br>four dialects.</h1>
-    <p class="lede">Every surface uses the same token names and the same classes. Five dials change underneath: font, density, and the accent's hue, saturation and lightness. Switch surface and mode at the top; everything on this page follows.</p>
+    <p class="lede">Every surface uses the same token names and the same classes. Five dials change underneath: font, density, and the accent's hue, saturation and lightness. Two more set a second accent for supporting details. Switch surface and mode at the top; everything on this page follows.</p>
     <div class="readout" id="readout" aria-live="polite"></div>
   </div>
 
@@ -208,10 +211,10 @@
       <p>Each part of the site speaks its own dialect. Pick one to restyle the page.</p>
     </div>
     <div class="surfaces">
-      <button type="button" class="surface" data-surface="portfolio"><span class="bar" style="background:var(--dial-portfolio)"></span><h3 style="font-family:var(--font-sans)">portfolio</h3><span class="k">the front door · sans · 1.125× · hue 265</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="learn"><span class="bar" style="background:var(--dial-learn)"></span><h3 style="font-family:var(--font-mono)">learn</h3><span class="k">the notebook · mono · 0.875× · ochre, hue 72</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="teach"><span class="bar" style="background:var(--dial-teach)"></span><h3 style="font-family:var(--font-display)">teach</h3><span class="k">the lecture · sans + Fraunces · 1× · hue 168</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="build"><span class="bar" style="background:var(--dial-build)"></span><h3 style="font-family:var(--font-mono)">build</h3><span class="k">the workbench · mono · 0.875× · hue 38</span><span class="now">Current</span></button>
+      <button type="button" class="surface" data-surface="portfolio"><span class="bar" style="background:var(--dial-portfolio)"></span><h3 style="font-family:var(--font-sans)">portfolio</h3><span class="k">the front door · sans · 1.125× · hue 265 · accent-2 265</span><span class="now">Current</span></button>
+      <button type="button" class="surface" data-surface="learn"><span class="bar" style="background:var(--dial-learn)"></span><h3 style="font-family:var(--font-mono)">learn</h3><span class="k">the notebook · mono · 0.875× · ochre, hue 72 · plum 312</span><span class="now">Current</span></button>
+      <button type="button" class="surface" data-surface="teach"><span class="bar" style="background:var(--dial-teach)"></span><h3 style="font-family:var(--font-display)">teach</h3><span class="k">the lecture · sans + Fraunces · 1× · hue 168 · raspberry 350</span><span class="now">Current</span></button>
+      <button type="button" class="surface" data-surface="build"><span class="bar" style="background:var(--dial-build)"></span><h3 style="font-family:var(--font-mono)">build</h3><span class="k">the workbench · mono · 0.875× · hue 38 · blueprint 225</span><span class="now">Current</span></button>
     </div>
   </section>
 
@@ -265,6 +268,11 @@
         <div class="row"><span class="dial-badge">font: <b>sans</b> · density: <b>1×</b> · hue: <b>168</b></span></div>
       </div>
       <div class="comp">
+        <p class="label">Second accent · accent-2</p>
+        <p style="margin:0;font-size:.9375rem;color:var(--text-body)">A <a href="#components">link</a> stays in the main accent. Supporting details, like a <mark class="hl">highlighted phrase</mark>, use <code style="white-space:nowrap">--accent-2</code>.</p>
+        <div class="row"><span class="tag2">#vue</span><span class="tag2">#tokens</span><span class="tag2 outline">draft</span></div>
+      </div>
+      <div class="comp">
         <p class="label">Form field</p>
         <div class="field">
           <label for="email-demo">Email</label>
@@ -291,7 +299,7 @@
   <section class="block" id="code">
     <div class="block-head">
       <h2>Code</h2>
-      <p>Shiki's css-variables theme, coloured by <code>code.css</code>. Keywords take this surface's accent; strings, functions and constants take the other three.</p>
+      <p>Shiki's css-variables theme, coloured by <code>code.css</code>. Keywords take this surface's accent and strings take its <code>--accent-2</code>; functions and constants take other surfaces' accents.</p>
     </div>
     <div class="codes">
       <div class="legend">
@@ -349,15 +357,15 @@
   var GROUPS = [
     ['Surfaces', [['bg','Page background'],['bg-alt','Bands, inline code, code blocks'],['bg-card','Cards; label on accent buttons'],['bg-elevated','Menus and popovers']]],
     ['Text', [['text-strong','Headings'],['text-body','Running copy'],['text-soft','Secondary copy'],['text-muted','Dates, read time, views']]],
-    ['Accent', [['accent','Links, primary button, focus ring'],['accent-hover','Hover for links and fills'],['accent-soft','Tinted fill (decorative in dark)']]],
+    ['Accent', [['accent','Links, primary button, focus ring'],['accent-hover','Hover for links and fills'],['accent-soft','Tinted fill (decorative in dark)'],['accent-2','Tags, highlights, code strings'],['accent-2-soft','Fill behind --accent-2 text']]],
     ['Borders', [['border','Decorative hairline'],['border-strong','Control edges, ≥3:1']]],
     ['Status', [['success','ok'],['warning','warn'],['danger','err'],['info','notice']]],
     ['Cross-surface', [['dial-portfolio','Portfolio accent'],['dial-learn','Learn accent'],['dial-teach','Teach accent'],['dial-build','Build accent']]]
   ];
-  var TEXTLIKE = { 'text-strong':1,'text-body':1,'text-soft':1,'text-muted':1,'accent':1,'accent-hover':1,'border-strong':1,'border':1,'dial-portfolio':1,'dial-learn':1,'dial-teach':1,'dial-build':1 };
+  var TEXTLIKE = { 'text-strong':1,'text-body':1,'text-soft':1,'text-muted':1,'accent':1,'accent-hover':1,'accent-2':1,'border-strong':1,'border':1,'dial-portfolio':1,'dial-learn':1,'dial-teach':1,'dial-build':1 };
   var DIALS = {
-    portfolio: ['sans', '1.125×', '265', '0.035'], learn: ['mono', '0.875×', '72', '0.10'],
-    teach: ['sans + Fraunces', '1×', '168', '0.09'], build: ['mono', '0.875×', '38', '0.16']
+    portfolio: ['sans', '1.125×', '265', '0.035', '265', '0.13'], learn: ['mono', '0.875×', '72', '0.10', '312', '0.12'],
+    teach: ['sans + Fraunces', '1×', '168', '0.09', '350', '0.13'], build: ['mono', '0.875×', '38', '0.16', '225', '0.09']
   };
 
   // Build swatches once; values and ratios refresh on every change.
@@ -408,7 +416,8 @@
       '<span class="dial-badge">mode: <b>' + (h.classList.contains('dark') ? 'dark' : 'light') + '</b></span>' +
       '<span class="dial-badge">font: <b>' + d[0] + '</b></span>' +
       '<span class="dial-badge">density: <b>' + d[1] + '</b></span>' +
-      '<span class="dial-badge">hue: <b>' + d[2] + '</b> · chroma: <b>' + d[3] + '</b></span>';
+      '<span class="dial-badge">hue: <b>' + d[2] + '</b> · chroma: <b>' + d[3] + '</b></span>' +
+      '<span class="dial-badge">accent-2 hue: <b>' + d[4] + '</b> · chroma: <b>' + d[5] + '</b></span>';
     document.querySelectorAll('[data-surface]').forEach(function (b) {
       if (b === h) return; b.setAttribute('aria-pressed', String(b.getAttribute('data-surface') === surface));
     });

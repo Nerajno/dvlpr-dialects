@@ -21,6 +21,8 @@ module.exports = {
         accent: "var(--accent)",
         "accent-hover": "var(--accent-hover)",
         "accent-soft": "var(--accent-soft)",
+        "accent-2": "var(--accent-2)",
+        "accent-2-soft": "var(--accent-2-soft)",
         success: "var(--success)",
         warning: "var(--warning)",
         danger: "var(--danger)",
