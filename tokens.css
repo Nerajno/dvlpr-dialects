@@ -45,7 +45,7 @@
   --dial-accent-light: 0.5;
   --dial-accent2-hue: 265;      /* monochrome: same hue, more colour */
   --dial-accent2-chroma: 0.13;
-  /* resolved: --accent #596378 (dark #9AABCE) · --accent-2 #3E5FAD (dark #86A9F7) */
+  /* resolved: --accent HEX: #596378 (dark HEX: #9AABCE) · --accent-2 HEX: #3E5FAD (dark HEX: #86A9F7) */
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -60,7 +60,7 @@
   --dial-accent-light: 0.48;
   --dial-accent2-hue: 312;      /* triadic: plum highlighter */
   --dial-accent2-chroma: 0.12;
-  /* resolved: --accent #805307 (dark #D39747) · --accent-2 #7A4D94 (dark #C296DD) */
+  /* resolved: --accent HEX: #805307 (dark HEX: #D39747) · --accent-2 HEX: #7A4D94 (dark HEX: #C296DD) */
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -75,7 +75,7 @@
   --dial-accent-light: 0.48;
   --dial-accent2-hue: 350;      /* complement: pink chalk */
   --dial-accent2-chroma: 0.13;
-  /* resolved: --accent #166E54 (dark #54BB97) · --accent-2 #973F6E (dark #E38AB5) */
+  /* resolved: --accent HEX: #166E54 (dark HEX: #54BB97) · --accent-2 HEX: #973F6E (dark HEX: #E38AB5) */
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -90,7 +90,7 @@
   --dial-accent-light: 0.5;
   --dial-accent2-hue: 225;      /* complement: blueprint (chroma capped for sRGB) */
   --dial-accent2-chroma: 0.09;
-  /* resolved: --accent #AA3606 (dark #FF7B4F) · --accent-2 #116D8A (dark #71B6D1) */
+  /* resolved: --accent HEX: #AA3606 (dark HEX: #FF7B4F) · --accent-2 HEX: #116D8A (dark HEX: #71B6D1) */
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -150,13 +150,13 @@ html {
   /* Semantic statuses (light). Hues sit at least 16° from every surface
      accent; status still needs a label or the .status marker shape, never
      colour alone. --on-* is the text colour on a solid status fill (>=4.6:1). */
-  --success:           oklch(0.62 0.15 145); /* #409D48 */
+  --success:           oklch(0.62 0.15 145); /* HEX: #409D48 */
   --success-soft:      oklch(0.62 0.15 145 / 0.15);
-  --warning:           oklch(0.76 0.14 95); /* #CDAF33 */
+  --warning:           oklch(0.76 0.14 95); /* HEX: #CDAF33 */
   --warning-soft:      oklch(0.76 0.14 95 / 0.15);
-  --danger:            oklch(0.55 0.18 22); /* #C5353E */
+  --danger:            oklch(0.55 0.18 22); /* HEX: #C5353E */
   --danger-soft:       oklch(0.55 0.18 22 / 0.15);
-  --info:              oklch(0.62 0.12 240); /* #338FC7 */
+  --info:              oklch(0.62 0.12 240); /* HEX: #338FC7 */
   --info-soft:         oklch(0.62 0.12 240 / 0.15);
   --on-success:        #04261A;
   --on-warning:        #3D2C00;
@@ -207,13 +207,13 @@ html {
   --accent-2:          oklch(0.74 calc(var(--dial-accent2-chroma) - 0.01) var(--dial-accent2-hue)); /* >=7.2:1 on every dark ground */
   --accent-2-soft:     oklch(0.32 calc(var(--dial-accent2-chroma) * 0.5) var(--dial-accent2-hue));  /* --accent-2 text on it >=5.3:1 */
 
-  --success:             oklch(0.72 0.14 145); /* #67BB6B */
+  --success:             oklch(0.72 0.14 145); /* HEX: #67BB6B */
   --success-soft:        oklch(0.72 0.14 145 / 0.15);
-  --warning:             oklch(0.82 0.13 95); /* #DEC358 */
+  --warning:             oklch(0.82 0.13 95); /* HEX: #DEC358 */
   --warning-soft:        oklch(0.82 0.13 95 / 0.15);
-  --danger:              oklch(0.68 0.17 22); /* #EF6567 */
+  --danger:              oklch(0.68 0.17 22); /* HEX: #EF6567 */
   --danger-soft:         oklch(0.68 0.17 22 / 0.15);
-  --info:                oklch(0.72 0.12 240); /* #55AEE8 */
+  --info:                oklch(0.72 0.12 240); /* HEX: #55AEE8 */
   --info-soft:           oklch(0.72 0.12 240 / 0.15);
   --on-success:          #052014;
   --on-warning:          #241800;
@@ -235,14 +235,14 @@ html {
    code highlighting). Same derivation as --accent, resolved per mode.
    ──────────────────────────────────────────────────────────────── */
 :root {
-  --dial-portfolio: oklch(0.5 0.035 265); /* #596378 */
-  --dial-learn: oklch(0.48 0.1 72); /* #805307 */
-  --dial-teach: oklch(0.48 0.09 168); /* #166E54 */
-  --dial-build: oklch(0.5 0.16 38); /* #AA3606 */
+  --dial-portfolio: oklch(0.5 0.035 265); /* HEX: #596378 */
+  --dial-learn: oklch(0.48 0.1 72); /* HEX: #805307 */
+  --dial-teach: oklch(0.48 0.09 168); /* HEX: #166E54 */
+  --dial-build: oklch(0.5 0.16 38); /* HEX: #AA3606 */
 }
 .dark {
-  --dial-portfolio: oklch(0.74 0.055 265); /* #9AABCE */
-  --dial-learn: oklch(0.72 0.12 72); /* #D39747 */
-  --dial-teach: oklch(0.72 0.11 168); /* #54BB97 */
-  --dial-build: oklch(0.74 0.18 38); /* #FF7B4F */
+  --dial-portfolio: oklch(0.74 0.055 265); /* HEX: #9AABCE */
+  --dial-learn: oklch(0.72 0.12 72); /* HEX: #D39747 */
+  --dial-teach: oklch(0.72 0.11 168); /* HEX: #54BB97 */
+  --dial-build: oklch(0.74 0.18 38); /* HEX: #FF7B4F */
 }
