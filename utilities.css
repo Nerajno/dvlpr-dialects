@@ -23,3 +23,17 @@
 
 .shadow-card { box-shadow: var(--shadow-md); }
 .shadow-card-lg { box-shadow: var(--shadow-lg); }
+
+/* Status pill: solid fill, readable text, and a marker shape per status
+   (ok circle, warn triangle, err square, info diamond), so status never
+   depends on hue alone. */
+.status { display: inline-flex; align-items: center; gap: .4em; }
+.status::before { content: ""; width: .55em; aspect-ratio: 1; flex: none; background: currentColor; }
+.status-ok   { background-color: var(--success); color: var(--on-success); }
+.status-warn { background-color: var(--warning); color: var(--on-warning); }
+.status-err  { background-color: var(--danger);  color: var(--on-danger); }
+.status-info { background-color: var(--info);    color: var(--on-info); }
+.status-ok::before   { border-radius: 50%; }
+.status-warn::before { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.status-err::before  { border-radius: 1px; }
+.status-info::before { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }

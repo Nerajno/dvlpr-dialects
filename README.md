@@ -98,6 +98,19 @@ a:hover { color: var(--accent-hover); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 ```
 
+### Status pills
+
+`utilities.css` includes a status pill that shows a marker shape as well as a colour:
+
+```html
+<span class="status status-ok">Shipped</span>
+<span class="status status-warn">In review</span>
+<span class="status status-err">Blocked</span>
+<span class="status status-info">Draft</span>
+```
+
+Add your own padding, radius and font; the classes only set the colours and the marker.
+
 ### 4. A dark-mode toggle
 
 `theme-init.js` reads the choice from `localStorage` under the key `theme`, so a toggle only has to write the same key and swap the class:
@@ -129,6 +142,7 @@ module.exports = { presets: [require("@nerajno/dialects/tailwind-preset")], /* �
 | `text-accent-2` `bg-accent-2-soft` | `--accent-2` |
 | `border-surface` `border-surface-strong` | borders |
 | `shadow-card` `shadow-card-lg` | shadows |
+| `text-on-success` `bg-success` … | status colours and their text colours |
 
 Values are CSS variables, so Tailwind's opacity modifiers (`bg-accent/50`) don't work. Use the `-soft` tokens instead.
 
@@ -159,7 +173,7 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 | Accent | `--accent` `--accent-hover` `--accent-soft` `--focus` |
 | Second accent | `--accent-2` `--accent-2-soft` |
 | Cross-surface | `--dial-portfolio` `--dial-learn` `--dial-teach` `--dial-build` |
-| Status | `--success` `--warning` `--danger` `--info`, each with a `-soft` version |
+| Status | `--success` `--warning` `--danger` `--info`, each with a `-soft` version · `--on-success` `--on-warning` `--on-danger` `--on-info` (text on a solid status fill) |
 | Fonts | `--font-body` `--font-heading` (resolved per surface) · `--font-sans` `--font-display` `--font-mono` |
 | Shape | `--radius-sm` 4 · `--radius-md` 8 · `--radius-lg` 12 · `--radius-xl` 16 |
 | Elevation | `--shadow-sm` `--shadow-md` `--shadow-lg` (tinted with the surface hue) |
@@ -193,12 +207,12 @@ The cross-surface tokens (`--dial-portfolio` and the rest) equal each surface's 
 
 **Status**
 
-| Token | Light | Dark |
-|---|---|---|
-| `--success` | `oklch(0.62 0.15 152)` `#259F56` | `oklch(0.72 0.14 152)` `#56BD78` |
-| `--warning` | `oklch(0.74 0.14 85)` `#D3A329` | `oklch(0.8 0.13 85)` `#E4B750` |
-| `--danger` | `oklch(0.55 0.17 27)` `#C13C36` | `oklch(0.68 0.16 27)` `#EA6B60` |
-| `--info` | `oklch(0.62 0.12 230)` `#1292C0` | `oklch(0.72 0.12 230)` `#43B2E1` |
+| Token | Light | Dark | Marker |
+|---|---|---|---|
+| `--success` | `oklch(0.62 0.15 145)` `#409D48` | `oklch(0.72 0.14 145)` `#67BB6B` | circle |
+| `--warning` | `oklch(0.76 0.14 95)` `#CDAF33` | `oklch(0.82 0.13 95)` `#DEC358` | triangle |
+| `--danger` | `oklch(0.55 0.18 22)` `#C5353E` | `oklch(0.68 0.17 22)` `#EF6567` | square |
+| `--info` | `oklch(0.62 0.12 240)` `#338FC7` | `oklch(0.72 0.12 240)` `#55AEE8` | diamond |
 
 A few vivid values sit just outside sRGB (build's dark `--accent`, for example), so their hex is the clipped nearest match and looks very slightly duller than the oklch original in a wide-gamut browser.
 
@@ -206,6 +220,7 @@ A few vivid values sit just outside sRGB (build's dark `--accent`, for example),
 
 - All four text tokens and `--accent` reach at least 4.5:1 on `--bg`, `--bg-alt` and `--bg-card` in every surface and mode.
 - `--accent-2` reaches at least 5.2:1 on every background in light mode and 7.2:1 in dark, and at least 4.9:1 on `--accent-2-soft`.
+- `--on-success`, `--on-warning`, `--on-danger` and `--on-info` reach at least 4.6:1 on their solid status fill in both modes.
 - `--border-strong` reaches at least 3:1 on every background.
 - `--border` is decorative only, at about 1.3:1.
 - In dark mode, `--accent-soft` doesn't hold body text (the best text token reaches about 3.8:1), so use it only as a fill there.
@@ -214,7 +229,7 @@ A few vivid values sit just outside sRGB (build's dark `--accent`, for example),
 
 - **One action colour.** Links, buttons and focus rings use `--accent`. `--accent-2` is for supporting details: tags, highlights, code strings, a second chart series.
 - **Put `--accent-2` text on `--accent-2-soft`**, not on `--accent-soft`.
-- **Status needs more than colour.** Three surface accents sit close to a status hue (build's orange near danger, learn's ochre near warning, teach's teal near success), so always pair a status colour with a label or icon.
+- **Status needs more than colour.** The status hues sit 16–25° from the nearest surface accent (build's orange and danger are the closest pair), so a status is never shown by hue alone. Use the `.status` pill from `utilities.css`, which pairs each colour with a label and a marker shape, or add your own label or icon.
 - **Never hard-code a colour.** If a token is missing, add it to the spine rather than to one site.
 
 ## Add or change a surface
@@ -238,7 +253,7 @@ Then:
 1. If it uses mono, add it to the `--font-body` / `--font-heading` mono block in `tokens.css`.
 2. Add a `--dial-<name>` cross-surface accent for light and dark.
 3. Add the name to the `SURFACES` list in `theme-init.js` and to the style guide's switcher in `index.html`.
-4. Open the style guide in that surface, in both modes, and check every contrast badge still meets the numbers above. Keep the new hues at least 30° away from the other surfaces' accents and the status hues (27, 85, 152, 230).
+4. Open the style guide in that surface, in both modes, and check every contrast badge still meets the numbers above. Keep the new hues at least 30° away from the other surfaces' accents and the status hues (22, 95, 145, 240).
 
 ## Releasing
 
