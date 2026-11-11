@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dialects: the four surface accents, in switcher order
+       (portfolio, learn / teach, build). Light tabs get the light-mode
+       accents; dark tabs get the brighter dark-mode ones. -->
+  <style>
+    .p { fill: #596378 } .l { fill: #805307 } .t { fill: #166E54 } .b { fill: #AA3606 }
+    @media (prefers-color-scheme: dark) {
+      .p { fill: #9AABCE } .l { fill: #D39747 } .t { fill: #54BB97 } .b { fill: #FF7B4F }
+    }
+  </style>
+  <rect class="p" x="2"  y="2"  width="13" height="13" rx="3.5"/>
+  <rect class="l" x="17" y="2"  width="13" height="13" rx="3.5"/>
+  <rect class="t" x="2"  y="17" width="13" height="13" rx="3.5"/>
+  <rect class="b" x="17" y="17" width="13" height="13" rx="3.5"/>
+</svg>
