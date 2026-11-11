@@ -167,6 +167,41 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 
 The cross-surface tokens are each surface's accent, pinned so any page can point at another surface: "read this on learn" links, surface switchers, and the code colours.
 
+### Hex values
+
+The tokens are written in `oklch()`, which is the source of truth. For Figma and other tools that want hex, here are the nearest sRGB values. The style guide shows the oklch and hex for every token, live, in whichever surface and mode you pick.
+
+**Accents (oklch)**
+
+| Surface | `--accent` light | `--accent` dark | `--accent-2` light | `--accent-2` dark |
+|---|---|---|---|---|
+| `portfolio` | `oklch(0.5 0.035 265)` | `oklch(0.74 0.055 265)` | `oklch(0.5 0.13 265)` | `oklch(0.74 0.12 265)` |
+| `learn` | `oklch(0.48 0.1 72)` | `oklch(0.72 0.12 72)` | `oklch(0.5 0.12 312)` | `oklch(0.74 0.11 312)` |
+| `teach` | `oklch(0.48 0.09 168)` | `oklch(0.72 0.11 168)` | `oklch(0.5 0.13 350)` | `oklch(0.74 0.12 350)` |
+| `build` | `oklch(0.5 0.16 38)` | `oklch(0.74 0.18 38)` | `oklch(0.5 0.09 225)` | `oklch(0.74 0.08 225)` |
+
+**Accents (hex)**
+
+| Surface | `--accent` light | `--accent` dark | `--accent-2` light | `--accent-2` dark | `--accent-2-soft` light | `--accent-2-soft` dark |
+|---|---|---|---|---|---|---|
+| `portfolio` | `#596378` | `#9AABCE` | `#3E5FAD` | `#86A9F7` | `#E3EBFD` | `#223154` |
+| `learn` | `#805307` | `#D39747` | `#7A4D94` | `#C296DD` | `#F1E7F7` | `#3D2949` |
+| `teach` | `#166E54` | `#54BB97` | `#973F6E` | `#E38AB5` | `#FAE4EE` | `#4B2437` |
+| `build` | `#AA3606` | `#FF7B4F` | `#116D8A` | `#71B6D1` | `#DFEEF4` | `#163844` |
+
+The cross-surface tokens (`--dial-portfolio` and the rest) equal each surface's `--accent` in the matching mode.
+
+**Status**
+
+| Token | Light | Dark |
+|---|---|---|
+| `--success` | `oklch(0.62 0.15 152)` `#259F56` | `oklch(0.72 0.14 152)` `#56BD78` |
+| `--warning` | `oklch(0.74 0.14 85)` `#D3A329` | `oklch(0.8 0.13 85)` `#E4B750` |
+| `--danger` | `oklch(0.55 0.17 27)` `#C13C36` | `oklch(0.68 0.16 27)` `#EA6B60` |
+| `--info` | `oklch(0.62 0.12 230)` `#1292C0` | `oklch(0.72 0.12 230)` `#43B2E1` |
+
+A few vivid values sit just outside sRGB (build's dark `--accent`, for example), so their hex is the clipped nearest match and looks very slightly duller than the oklch original in a wide-gamut browser.
+
 ### Contrast
 
 - All four text tokens and `--accent` reach at least 4.5:1 on `--bg`, `--bg-alt` and `--bg-card` in every surface and mode.
