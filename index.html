@@ -135,11 +135,6 @@
   .btn-secondary { background: transparent; color: var(--text-body); border: 1px solid var(--border-strong); font-weight: 500; padding: .75rem 1.25rem; }
   .btn-secondary:hover { background: var(--bg-alt); color: var(--text-strong); }
   .status { font: 700 .75rem/1.5 var(--font-mono); padding: .125rem .5rem; border-radius: 6px; }
-  .status.ok { color: #04261a; background: var(--success); }
-  .status.warn { color: #3d2c00; background: var(--warning); }
-  .status.err { color: #fff; background: var(--danger); }
-  .dark .status.ok { color: #052014; }
-  .dark .status.warn { color: #241800; }
   .tag2 { font: 500 .75rem/1.5 var(--font-mono); padding: .125rem .5rem; border-radius: 6px; color: var(--accent-2); background: var(--accent-2-soft); }
   .tag2.outline { background: transparent; border: 1px solid var(--accent-2); }
   mark.hl { background: var(--accent-2-soft); color: var(--accent-2); padding: 0 .2em; border-radius: 3px; }
@@ -264,8 +259,8 @@
         <div class="row"><button type="button" class="btn btn-primary">Primary action</button><button type="button" class="btn btn-secondary">Read the next post</button></div>
       </div>
       <div class="comp">
-        <p class="label">Status pills</p>
-        <div class="row"><span class="status ok">ok</span><span class="status warn">warn</span><span class="status err">err</span></div>
+        <p class="label">Status pills · shape + colour</p>
+        <div class="row"><span class="status status-ok">ok</span><span class="status status-warn">warn</span><span class="status status-err">err</span><span class="status status-info">info</span></div>
         <div class="row"><span class="dial-badge">font: <b>sans</b> · density: <b>1×</b> · hue: <b>168</b></span></div>
       </div>
       <div class="comp">
@@ -360,7 +355,7 @@
     ['Text', [['text-strong','Headings'],['text-body','Running copy'],['text-soft','Secondary copy'],['text-muted','Dates, read time, views']]],
     ['Accent', [['accent','Links, primary button, focus ring'],['accent-hover','Hover for links and fills'],['accent-soft','Tinted fill (decorative in dark)'],['accent-2','Tags, highlights, code strings'],['accent-2-soft','Fill behind --accent-2 text']]],
     ['Borders', [['border','Decorative hairline'],['border-strong','Control edges, ≥3:1']]],
-    ['Status', [['success','ok'],['warning','warn'],['danger','err'],['info','notice']]],
+    ['Status', [['success','ok · circle marker'],['warning','warn · triangle marker'],['danger','err · square marker'],['info','info · diamond marker']]],
     ['Cross-surface', [['dial-portfolio','Portfolio accent'],['dial-learn','Learn accent'],['dial-teach','Teach accent'],['dial-build','Build accent']]]
   ];
   var TEXTLIKE = { 'text-strong':1,'text-body':1,'text-soft':1,'text-muted':1,'accent':1,'accent-hover':1,'accent-2':1,'border-strong':1,'border':1,'dial-portfolio':1,'dial-learn':1,'dial-teach':1,'dial-build':1 };

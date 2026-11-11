@@ -2,6 +2,8 @@
  *  Gives the same class names as utilities.css (bg-surface, text-strong,
  *  border-surface-strong, shadow-card…) plus Tailwind variants (hover:, md:…).
  *  Usage: module.exports = { presets: [require("@nerajno/dialects/tailwind-preset")], … }
+ *  The .status pill (with its marker shapes) lives in utilities.css; import it
+ *  alongside the preset if you want it.
  *  Note: values are CSS variables, so opacity modifiers (bg-accent/50) don't apply.
  *  @type {import('tailwindcss').Config} */
 module.exports = {
@@ -27,6 +29,10 @@ module.exports = {
         warning: "var(--warning)",
         danger: "var(--danger)",
         info: "var(--info)",
+        "on-success": "var(--on-success)",
+        "on-warning": "var(--on-warning)",
+        "on-danger": "var(--on-danger)",
+        "on-info": "var(--on-info)",
       },
       borderColor: {
         surface: "var(--border)",
