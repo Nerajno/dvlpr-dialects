@@ -10,6 +10,7 @@ Every surface (portfolio, learn, teach, build) uses the same token names and the
 - [Install](#install)
 - [Use](#use)
 - [Tokens](#tokens)
+- [Colour names](#colour-names)
 - [Rules of thumb](#rules-of-thumb)
 - [Add or change a surface](#add-or-change-a-surface)
 - [Releasing](#releasing)
@@ -18,10 +19,10 @@ Every surface (portfolio, learn, teach, build) uses the same token names and the
 
 | Surface | Persona | Font | Density | Accent | Second accent |
 |---|---|---|---|---|---|
-| `portfolio` (default) | the front door | Plus Jakarta Sans | 1.125× | near-neutral violet (hue 265) | indigo (hue 265) |
-| `learn` | the notebook | JetBrains Mono | 0.875× | ochre (hue 72) | plum (hue 312) |
-| `teach` (blog, slides) | the lecture | Plus Jakarta Sans, Fraunces headings | 1× | chalkboard teal (hue 168) | raspberry (hue 350) |
-| `build` | the workbench | JetBrains Mono | 0.875× | workshop orange (hue 38) | blueprint (hue 225) |
+| `portfolio` (default) | the front door | Plus Jakarta Sans | 1.125× | Quiet Violet (hue 265) | Signal Indigo (hue 265) |
+| `learn` | the notebook | JetBrains Mono | 0.875× | Notebook Ochre (hue 72) | Highlighter Plum (hue 312) |
+| `teach` (blog, slides) | the lecture | Plus Jakarta Sans, Fraunces headings | 1× | Chalkboard Teal (hue 168) | Pink Chalk (hue 350) |
+| `build` | the workbench | JetBrains Mono | 0.875× | Workshop Orange (hue 38) | Blueprint Blue (hue 225) |
 
 ### The dials
 
@@ -44,9 +45,9 @@ Each surface's second accent was picked with a colour-theory rule against its ma
 | Surface | Rule |
 |---|---|
 | `portfolio` | Monochrome: same hue, more colour. Portfolio's main accent is near-gray, so the second one is where its colour comes from. |
-| `learn` | Triadic: a plum highlighter on an ochre notebook. |
-| `teach` | Complement: pink chalk on a teal chalkboard. |
-| `build` | Complement: blueprint blue against safety orange. Chroma is capped at 0.09 to stay inside sRGB. |
+| `learn` | Triadic: Highlighter Plum on a Notebook Ochre page. |
+| `teach` | Complement: Pink Chalk on a Chalkboard Teal board. |
+| `build` | Complement: Blueprint Blue against Workshop Orange. Chroma is capped at 0.09 to stay inside sRGB. |
 
 > `--accent-2` is new since v0.1.0 and ships in the next tagged release.
 
@@ -181,6 +182,27 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 
 The cross-surface tokens are each surface's accent, pinned so any page can point at another surface: "read this on learn" links, surface switchers, and the code colours.
 
+### Colour names
+
+Every colour that carries meaning has a human name, so you can say "use Pink Chalk for the tag" instead of "the teach surface's second accent". Backgrounds, text and borders keep their role names (`--bg`, `--text-body`), because their tint changes with the surface.
+
+| Name | Token | Where | Job | Light | Dark |
+|---|---|---|---|---|---|
+| Quiet Violet | `--accent` | portfolio | action | `HEX: #596378` | `HEX: #9AABCE` |
+| Signal Indigo | `--accent-2` | portfolio | support | `HEX: #3E5FAD` | `HEX: #86A9F7` |
+| Notebook Ochre | `--accent` | learn | action | `HEX: #805307` | `HEX: #D39747` |
+| Highlighter Plum | `--accent-2` | learn | support | `HEX: #7A4D94` | `HEX: #C296DD` |
+| Chalkboard Teal | `--accent` | teach | action | `HEX: #166E54` | `HEX: #54BB97` |
+| Pink Chalk | `--accent-2` | teach | support | `HEX: #973F6E` | `HEX: #E38AB5` |
+| Workshop Orange | `--accent` | build | action | `HEX: #AA3606` | `HEX: #FF7B4F` |
+| Blueprint Blue | `--accent-2` | build | support | `HEX: #116D8A` | `HEX: #71B6D1` |
+| Go Green | `--success` | all | ok | `HEX: #409D48` | `HEX: #67BB6B` |
+| Caution Yellow | `--warning` | all | warn | `HEX: #CDAF33` | `HEX: #DEC358` |
+| Stop Red | `--danger` | all | error | `HEX: #C5353E` | `HEX: #EF6567` |
+| Notice Blue | `--info` | all | info | `HEX: #338FC7` | `HEX: #55AEE8` |
+
+Variants take the base name: Chalkboard Teal hover is `--accent-hover`, Pink Chalk soft is `--accent-2-soft`. The cross-surface tokens (`--dial-teach` and the rest) carry the same names as each surface's accent.
+
 ### Hex values
 
 The tokens are written in `oklch()`, which is the source of truth. For Figma and other tools that want hex, here are the nearest sRGB values. The style guide shows the oklch and hex for every token, live, in whichever surface and mode you pick.
@@ -209,10 +231,10 @@ The cross-surface tokens (`--dial-portfolio` and the rest) equal each surface's 
 
 | Token | Light | Dark | Marker |
 |---|---|---|---|
-| `--success` | `oklch(0.62 0.15 145)` `HEX: #409D48` | `oklch(0.72 0.14 145)` `HEX: #67BB6B` | circle |
-| `--warning` | `oklch(0.76 0.14 95)` `HEX: #CDAF33` | `oklch(0.82 0.13 95)` `HEX: #DEC358` | triangle |
-| `--danger` | `oklch(0.55 0.18 22)` `HEX: #C5353E` | `oklch(0.68 0.17 22)` `HEX: #EF6567` | square |
-| `--info` | `oklch(0.62 0.12 240)` `HEX: #338FC7` | `oklch(0.72 0.12 240)` `HEX: #55AEE8` | diamond |
+| `--success` (Go Green) | `oklch(0.62 0.15 145)` `HEX: #409D48` | `oklch(0.72 0.14 145)` `HEX: #67BB6B` | circle |
+| `--warning` (Caution Yellow) | `oklch(0.76 0.14 95)` `HEX: #CDAF33` | `oklch(0.82 0.13 95)` `HEX: #DEC358` | triangle |
+| `--danger` (Stop Red) | `oklch(0.55 0.18 22)` `HEX: #C5353E` | `oklch(0.68 0.17 22)` `HEX: #EF6567` | square |
+| `--info` (Notice Blue) | `oklch(0.62 0.12 240)` `HEX: #338FC7` | `oklch(0.72 0.12 240)` `HEX: #55AEE8` | diamond |
 
 A few vivid values sit just outside sRGB (build's dark `--accent`, for example), so their hex is the clipped nearest match and looks very slightly duller than the oklch original in a wide-gamut browser.
 
