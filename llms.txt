@@ -10,7 +10,7 @@ Key facts:
 - Each surface has an action accent (`--accent`, for links, buttons and focus) and a support accent (`--accent-2`, for tags, highlights and code strings).
 - Accent names: portfolio Quiet Violet and Signal Indigo; learn Notebook Ochre and Highlighter Plum; teach Chalkboard Teal and Pink Chalk; build Workshop Orange and Blueprint Blue.
 - Status colours: Go Green (ok), Caution Yellow (warn), Stop Red (error), Notice Blue (info), each paired with a marker shape.
-- License: PolyForm Noncommercial License 1.0.0 (source-available; free for non-commercial use, commercial use needs permission from the author).
+- License: PolyForm Noncommercial License 1.0.0 (source-available; free for non-commercial use, commercial use needs a separate license: nerando@developingdvlpr.com).
 - Contrast: text tokens and `--accent` reach at least 4.5:1 on every background; `--border-strong` at least 3:1.
 
 ## Docs
@@ -27,4 +27,4 @@ Key facts:
 
 ## Author
 
-- [Nerando Johnson](https://developingdvlpr.com), developingdvlpr.com
+- [Nerando Johnson](https://developingdvlpr.com), developingdvlpr.com, nerando@developingdvlpr.com

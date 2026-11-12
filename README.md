@@ -300,6 +300,6 @@ When the page changes, update the `<time>` in the footer and `lastmod` in `sitem
 
 ## License
 
-Dialects is **source-available** under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You can use, copy and change it for any non-commercial purpose: personal projects, learning, research, education, charities and government. Commercial use needs a separate license; get in touch through [developingdvlpr.com](https://developingdvlpr.com).
+Dialects is **source-available** under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You can use, copy and change it for any non-commercial purpose: personal projects, learning, research, education, charities and government. Commercial use needs a separate license: email [nerando@developingdvlpr.com](mailto:nerando@developingdvlpr.com).
 
 Required Notice: Copyright 2026 Nerando Johnson (https://developingdvlpr.com)
