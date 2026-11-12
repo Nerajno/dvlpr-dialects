@@ -22,5 +22,7 @@
   "peerDependenciesMeta": { "tailwindcss": { "optional": true } },
   "repository": { "type": "git", "url": "git+https://github.com/Nerajno/dvlpr-dialects.git" },
   "author": "Nerando Johnson (https://developingdvlpr.com)",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "homepage": "https://nerajno.github.io/dvlpr-dialects/",
   "keywords": ["design-tokens", "css", "oklch", "tailwind", "astro"]
 }

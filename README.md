@@ -14,6 +14,7 @@ Every surface (portfolio, learn, teach, build) uses the same token names and the
 - [Rules of thumb](#rules-of-thumb)
 - [Add or change a surface](#add-or-change-a-surface)
 - [Releasing](#releasing)
+- [License](#license)
 
 ## Surfaces
 
@@ -296,3 +297,9 @@ The style guide is set up to be found and quoted by search engines and AI answer
 - `sitemap.xml`: submit it in Google Search Console and Bing Webmaster Tools.
 
 When the page changes, update the `<time>` in the footer and `lastmod` in `sitemap.xml`. Re-render `og-image.png` if the accents change.
+
+## License
+
+Dialects is **source-available** under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You can use, copy and change it for any non-commercial purpose: personal projects, learning, research, education, charities and government. Commercial use needs a separate license; get in touch through [developingdvlpr.com](https://developingdvlpr.com).
+
+Required Notice: Copyright 2026 Nerando Johnson (https://developingdvlpr.com)

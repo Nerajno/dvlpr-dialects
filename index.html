@@ -10,16 +10,17 @@
 <meta name="theme-color" content="#F8FAFE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0D12" media="(prefers-color-scheme: dark)">
 <title>Dialects: an OKLCH design-token system with four surface dialects</title>
-<meta name="description" content="Dialects is an open-source OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta name="description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta name="author" content="Nerando Johnson">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://nerajno.github.io/dvlpr-dialects/">
 <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-readable summary">
 <link rel="sitemap" type="application/xml" href="sitemap.xml">
+<link rel="license" href="https://polyformproject.org/licenses/noncommercial/1.0.0">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dialects">
 <meta property="og:title" content="Dialects: one token layer, four dialects">
-<meta property="og:description" content="Dialects is an open-source OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta property="og:description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta property="og:url" content="https://nerajno.github.io/dvlpr-dialects/">
 <meta property="og:image" content="https://nerajno.github.io/dvlpr-dialects/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -28,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dialects: one token layer, four dialects">
-<meta name="twitter:description" content="Dialects is an open-source OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta name="twitter:description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta name="twitter:image" content="https://nerajno.github.io/dvlpr-dialects/og-image.png">
 <meta name="twitter:image:alt" content="Dialects: four surface accent colours in a grid beside the title One token layer, four dialects">
 <script type="application/ld+json">
@@ -40,7 +41,7 @@
    "@id": "https://nerajno.github.io/dvlpr-dialects/#website",
    "url": "https://nerajno.github.io/dvlpr-dialects/",
    "name": "Dialects",
-   "description": "Dialects is an open-source OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
+   "description": "Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
    "inLanguage": "en",
    "publisher": {
     "@id": "https://developingdvlpr.com/#person"
@@ -61,7 +62,7 @@
    "@id": "https://nerajno.github.io/dvlpr-dialects/#code",
    "name": "Dialects",
    "alternateName": "@nerajno/dialects",
-   "description": "Dialects is an open-source OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
+   "description": "Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
    "codeRepository": "https://github.com/Nerajno/dvlpr-dialects",
    "programmingLanguage": [
     "CSS",
@@ -72,7 +73,8 @@
     "@id": "https://developingdvlpr.com/#person"
    },
    "keywords": "design tokens, OKLCH, CSS custom properties, Tailwind CSS preset, dark mode, WCAG contrast, Astro",
-   "version": "0.1.0"
+   "version": "0.1.0",
+   "license": "https://polyformproject.org/licenses/noncommercial/1.0.0"
   },
   {
    "@type": "FAQPage",
@@ -83,7 +85,7 @@
      "name": "What is Dialects?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Dialects is an open-source design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours."
+      "text": "Dialects is a source-available design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours."
      }
     },
     {
@@ -124,6 +126,14 @@
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Install it from a tagged GitHub release with npm i github:Nerajno/dvlpr-dialects#v0.1.0, import tokens.css and utilities.css, and inline theme-init.js in the page head to set the surface and light or dark mode before first paint. A Tailwind CSS preset is included."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use Dialects in a commercial project?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not without permission. Dialects is licensed under the PolyForm Noncommercial License 1.0.0, so it is free for personal projects, learning, research, education, charities and government. For commercial use, contact Nerando Johnson through developingdvlpr.com for a separate license."
      }
     }
    ]
@@ -337,7 +347,7 @@
   <div class="hero">
     <p class="eyebrow">developingdvlpr.com · token spine</p>
     <h1>One token layer,<br>four dialects.</h1>
-    <p class="lede"><strong>Dialects</strong> is an open-source OKLCH design-token system by <a href="https://developingdvlpr.com">Nerando Johnson</a> for developingdvlpr.com. Every surface uses the same token names and the same classes. Five dials change underneath: font, density, and the accent's hue, saturation and lightness. Two more set a second accent for supporting details. Switch surface and mode at the top; everything on this page follows.</p>
+    <p class="lede"><strong>Dialects</strong> is a source-available OKLCH design-token system by <a href="https://developingdvlpr.com">Nerando Johnson</a> for developingdvlpr.com. Every surface uses the same token names and the same classes. Five dials change underneath: font, density, and the accent's hue, saturation and lightness. Two more set a second accent for supporting details. Switch surface and mode at the top; everything on this page follows.</p>
     <div class="readout" id="readout" aria-live="polite"></div>
   </div>
 
@@ -488,7 +498,7 @@
     <div class="faq">
       <details class="qa" open>
         <summary><h3>What is Dialects?</h3></summary>
-        <p>Dialects is an open-source design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours.</p>
+        <p>Dialects is a source-available design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours.</p>
       </details>
       <details class="qa">
         <summary><h3>What is a dialect in Dialects?</h3></summary>
@@ -510,6 +520,10 @@
         <summary><h3>How do I install Dialects?</h3></summary>
         <p>Install it from a tagged GitHub release with npm i github:Nerajno/dvlpr-dialects#v0.1.0, import tokens.css and utilities.css, and inline theme-init.js in the page head to set the surface and light or dark mode before first paint. A Tailwind CSS preset is included.</p>
       </details>
+      <details class="qa">
+        <summary><h3>Can I use Dialects in a commercial project?</h3></summary>
+        <p>Not without permission. Dialects is licensed under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm Noncommercial License 1.0.0</a>, so it is free for personal projects, learning, research, education, charities and government. For commercial use, contact Nerando Johnson through <a href="https://developingdvlpr.com">developingdvlpr.com</a> for a separate license.</p>
+      </details>
       <table class="names">
         <caption>Named colours, light mode hex</caption>
         <thead><tr><th scope="col">Surface</th><th scope="col">Action accent</th><th scope="col">Support accent</th></tr></thead>
@@ -526,7 +540,7 @@
 
 <footer>
   <div class="wrap">
-    <p>Dialects v0.1.0 · the token spine for developingdvlpr.com, by <a href="https://developingdvlpr.com" rel="author">Nerando Johnson</a> (<a href="https://github.com/Nerajno">@Nerajno</a>). Last updated <time datetime="2026-11-12">November 12, 2026</time>. Source and docs on <a href="https://github.com/Nerajno/dvlpr-dialects">GitHub</a>. Install from a tagged release:</p>
+    <p>Dialects v0.1.0 · the token spine for developingdvlpr.com, by <a href="https://developingdvlpr.com" rel="author">Nerando Johnson</a> (<a href="https://github.com/Nerajno">@Nerajno</a>). Last updated <time datetime="2026-11-12">November 12, 2026</time>. Source and docs on <a href="https://github.com/Nerajno/dvlpr-dialects">GitHub</a>. Free for non-commercial use under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0" rel="license">PolyForm Noncommercial License 1.0.0</a>. Install from a tagged release:</p>
     <pre><code>npm i github:Nerajno/dvlpr-dialects#v0.1.0</code></pre>
   </div>
 </footer>
