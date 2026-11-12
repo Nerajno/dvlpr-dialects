@@ -14,6 +14,7 @@ Every surface (portfolio, learn, teach, build) uses the same token names and the
 - [Rules of thumb](#rules-of-thumb)
 - [Add or change a surface](#add-or-change-a-surface)
 - [Releasing](#releasing)
+- [License](#license)
 
 ## Surfaces
 
@@ -49,14 +50,12 @@ Each surface's second accent was picked with a colour-theory rule against its ma
 | `teach` | Complement: Pink Chalk on a Chalkboard Teal board. |
 | `build` | Complement: Blueprint Blue against Workshop Orange. Chroma is capped at 0.09 to stay inside sRGB. |
 
-> `--accent-2` is new since v0.1.0 and ships in the next tagged release.
-
 ## Install
 
 The package is named `@nerajno/dialects` and installs from a tagged GitHub release:
 
 ```bash
-npm i github:Nerajno/dvlpr-dialects#v0.1.0
+npm i github:Nerajno/dvlpr-dialects#v0.2.0
 ```
 
 **Browser support:** the tokens use `oklch()` with `calc()` inside it, so they need a current evergreen browser. There's no fallback for older ones.
@@ -159,9 +158,9 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.1.0/tokens.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.1.0/utilities.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.1.0/code.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/utilities.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/code.css">
 ```
 
 ## Tokens
@@ -285,3 +284,20 @@ Then:
 4. Commit, then tag and push: `git tag v0.2.0 && git push --tags`.
 
 Each site upgrades by changing the tag in its install string. The style guide is served by GitHub Pages from `main` (root folder).
+
+### Search and AI visibility
+
+The style guide is set up to be found and quoted by search engines and AI answer tools:
+
+- `index.html`: a descriptive title and meta description, a canonical URL, Open Graph and Twitter tags with `og-image.png` (1200 × 630), and JSON-LD for the site, its author, the code and the FAQ.
+- A static **Questions** section and a named-colour table that read without JavaScript, since the swatches are built by script.
+- `llms.txt`: a plain summary of Dialects for AI tools, with links to the docs and source.
+- `sitemap.xml`: submit it in Google Search Console and Bing Webmaster Tools.
+
+When the page changes, update the `<time>` in the footer and `lastmod` in `sitemap.xml`. Re-render `og-image.png` if the accents change.
+
+## License
+
+Dialects is **source-available** under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You can use, copy and change it for any non-commercial purpose: personal projects, learning, research, education, charities and government. Commercial use needs a separate license: email [nerando@developingdvlpr.com](mailto:nerando@developingdvlpr.com).
+
+Required Notice: Copyright 2026 Nerando Johnson (https://developingdvlpr.com)

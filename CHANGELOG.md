@@ -1,7 +1,11 @@
 # Changelog
 
-## Unreleased
+## v0.2.0 (2026-11-12)
 
+Upgrading from v0.1.0: change `#v0.1.0` to `#v0.2.0` in your install string. No tokens were renamed or removed. The status colours shift slightly, and Dialects is now licensed under PolyForm Noncommercial 1.0.0.
+
+- Licensed under the PolyForm Noncommercial License 1.0.0 (`LICENSE.md`, `license` in `package.json`). Dialects is now described as source-available rather than open-source.
+- Search and AI visibility for the style guide: descriptive title and description, canonical URL, Open Graph and Twitter tags with a social image, JSON-LD (WebSite, Person, SoftwareSourceCode, FAQPage), a static Questions section, `llms.txt` and `sitemap.xml`. Headings fixed so the page has one `h1` and none inside buttons.
 - Colour names: each accent and status colour has a human name (Chalkboard Teal, Pink Chalk, Stop Red…), shown on every style-guide swatch, in `tokens.css` comments and in a README table.
 - New `--accent-2` and `--accent-2-soft`: a second accent for each surface, driven by two new dials (`--dial-accent2-hue`, `--dial-accent2-chroma`). Portfolio gets Signal Indigo (same hue, more colour), learn Highlighter Plum (triadic), teach Pink Chalk (complement) and build Blueprint Blue (complement).
 - `code.css`: strings now use the surface's `--accent-2` instead of another surface's accent.

@@ -1,0 +1,30 @@
+# Dialects
+
+> Dialects is a source-available OKLCH design-token system by Nerando Johnson (@Nerajno) for developingdvlpr.com: one layer of CSS custom properties shared by every site, with four surface dialects (portfolio, learn, teach, build) that change only a few "dial" variables (font, density and two accent colours), in light and dark mode.
+
+Key facts:
+
+- Package: `@nerajno/dialects`, installed from GitHub tags: `npm i github:Nerajno/dvlpr-dialects#v0.2.0`
+- Files: `tokens.css` (the spine), `utilities.css`, `code.css` (Shiki css-variables theme), `fonts.css`, `theme-init.js` (sets surface and mode before first paint), `tailwind-preset.cjs` (Tailwind CSS 3.4+)
+- Colour is written in `oklch()`; hex values are nearest-sRGB references for design tools.
+- Each surface has an action accent (`--accent`, for links, buttons and focus) and a support accent (`--accent-2`, for tags, highlights and code strings).
+- Accent names: portfolio Quiet Violet and Signal Indigo; learn Notebook Ochre and Highlighter Plum; teach Chalkboard Teal and Pink Chalk; build Workshop Orange and Blueprint Blue.
+- Status colours: Go Green (ok), Caution Yellow (warn), Stop Red (error), Notice Blue (info), each paired with a marker shape.
+- License: PolyForm Noncommercial License 1.0.0 (source-available; free for non-commercial use, commercial use needs a separate license: nerando@developingdvlpr.com).
+- Contrast: text tokens and `--accent` reach at least 4.5:1 on every background; `--border-strong` at least 3:1.
+
+## Docs
+
+- [Style guide](https://nerajno.github.io/dvlpr-dialects/): every token, type style and component, live, on all four surfaces in light and dark
+- [README](https://github.com/Nerajno/dvlpr-dialects#readme): install, usage, token reference, colour names and hex values
+- [License](https://github.com/Nerajno/dvlpr-dialects/blob/main/LICENSE.md)
+- [Changelog](https://github.com/Nerajno/dvlpr-dialects/blob/main/CHANGELOG.md)
+
+## Source
+
+- [tokens.css](https://github.com/Nerajno/dvlpr-dialects/blob/main/tokens.css): the token spine and every dial
+- [Repository](https://github.com/Nerajno/dvlpr-dialects)
+
+## Author
+
+- [Nerando Johnson](https://developingdvlpr.com), developingdvlpr.com, nerando@developingdvlpr.com
