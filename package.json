@@ -1,6 +1,6 @@
 {
   "name": "@nerajno/dialects",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The developingdvlpr.com token spine: one OKLCH token layer, four surface dialects (portfolio, learn, teach, build), light and dark.",
   "files": ["tokens.css", "utilities.css", "code.css", "fonts.css", "theme-init.js", "tailwind-preset.cjs"],
   "style": "tokens.css",

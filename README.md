@@ -50,14 +50,12 @@ Each surface's second accent was picked with a colour-theory rule against its ma
 | `teach` | Complement: Pink Chalk on a Chalkboard Teal board. |
 | `build` | Complement: Blueprint Blue against Workshop Orange. Chroma is capped at 0.09 to stay inside sRGB. |
 
-> `--accent-2` is new since v0.1.0 and ships in the next tagged release.
-
 ## Install
 
 The package is named `@nerajno/dialects` and installs from a tagged GitHub release:
 
 ```bash
-npm i github:Nerajno/dvlpr-dialects#v0.1.0
+npm i github:Nerajno/dvlpr-dialects#v0.2.0
 ```
 
 **Browser support:** the tokens use `oklch()` with `calc()` inside it, so they need a current evergreen browser. There's no fallback for older ones.
@@ -160,9 +158,9 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.1.0/tokens.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.1.0/utilities.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.1.0/code.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/utilities.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/code.css">
 ```
 
 ## Tokens

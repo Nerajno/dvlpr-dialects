@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased
+## v0.2.0 (2026-11-12)
+
+Upgrading from v0.1.0: change `#v0.1.0` to `#v0.2.0` in your install string. No tokens were renamed or removed. The status colours shift slightly, and Dialects is now licensed under PolyForm Noncommercial 1.0.0.
 
 - Licensed under the PolyForm Noncommercial License 1.0.0 (`LICENSE.md`, `license` in `package.json`). Dialects is now described as source-available rather than open-source.
 - Search and AI visibility for the style guide: descriptive title and description, canonical URL, Open Graph and Twitter tags with a social image, JSON-LD (WebSite, Person, SoftwareSourceCode, FAQPage), a static Questions section, `llms.txt` and `sitemap.xml`. Headings fixed so the page has one `h1` and none inside buttons.

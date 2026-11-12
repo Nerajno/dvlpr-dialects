@@ -4,7 +4,7 @@
 
 Key facts:
 
-- Package: `@nerajno/dialects`, installed from GitHub tags: `npm i github:Nerajno/dvlpr-dialects#v0.1.0`
+- Package: `@nerajno/dialects`, installed from GitHub tags: `npm i github:Nerajno/dvlpr-dialects#v0.2.0`
 - Files: `tokens.css` (the spine), `utilities.css`, `code.css` (Shiki css-variables theme), `fonts.css`, `theme-init.js` (sets surface and mode before first paint), `tailwind-preset.cjs` (Tailwind CSS 3.4+)
 - Colour is written in `oklch()`; hex values are nearest-sRGB references for design tools.
 - Each surface has an action accent (`--accent`, for links, buttons and focus) and a support accent (`--accent-2`, for tags, highlights and code strings).
