@@ -285,3 +285,14 @@ Then:
 4. Commit, then tag and push: `git tag v0.2.0 && git push --tags`.
 
 Each site upgrades by changing the tag in its install string. The style guide is served by GitHub Pages from `main` (root folder).
+
+### Search and AI visibility
+
+The style guide is set up to be found and quoted by search engines and AI answer tools:
+
+- `index.html`: a descriptive title and meta description, a canonical URL, Open Graph and Twitter tags with `og-image.png` (1200 × 630), and JSON-LD for the site, its author, the code and the FAQ.
+- A static **Questions** section and a named-colour table that read without JavaScript, since the swatches are built by script.
+- `llms.txt`: a plain summary of Dialects for AI tools, with links to the docs and source.
+- `sitemap.xml`: submit it in Google Search Console and Bing Webmaster Tools.
+
+When the page changes, update the `<time>` in the footer and `lastmod` in `sitemap.xml`. Re-render `og-image.png` if the accents change.
