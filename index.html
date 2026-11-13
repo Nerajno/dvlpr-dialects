@@ -86,55 +86,55 @@
      "name": "What is Dialects?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Dialects is a source-available design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours."
+      "text": "A design-token layer for a set of related sites. One layer of CSS custom properties that every site shares, with four surfaces that each change a few dial variables: font, density and two accent colours."
      }
     },
     {
      "@type": "Question",
-     "name": "What is a dialect in Dialects?",
+     "name": "What is a dialect?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "A dialect is how one surface speaks the shared tokens. The portfolio, learn, teach and build surfaces all use the same token names and classes, but each sets its own dials, so it gets its own font, density and accent colours."
+      "text": "How one surface speaks the shared tokens. Every surface uses the same token names and classes, but sets its own dials, so it gets its own font, density and colours."
      }
     },
     {
      "@type": "Question",
-     "name": "Why does Dialects use OKLCH instead of hex?",
+     "name": "Why OKLCH instead of hex?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "OKLCH describes colour as lightness, chroma and hue, and equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools like Figma, but OKLCH is the source of truth."
+      "text": "Because equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools; OKLCH is the source of truth."
      }
     },
     {
      "@type": "Question",
-     "name": "What are the Dialects accent colours?",
+     "name": "What are the accent colours?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Each surface has an action accent and a support accent: portfolio uses Quiet Violet and Signal Indigo, learn uses Notebook Ochre and Highlighter Plum, teach uses Chalkboard Teal and Pink Chalk, and build uses Workshop Orange and Blueprint Blue. Status colours are Go Green, Caution Yellow, Stop Red and Notice Blue."
+      "text": "Each surface has an action accent for links and buttons, and a support accent for tags and highlights. Portfolio uses Quiet Violet and Signal Indigo; learn, Notebook Ochre and Highlighter Plum; teach, Chalkboard Teal and Pink Chalk; build, Workshop Orange and Blueprint Blue."
      }
     },
     {
      "@type": "Question",
-     "name": "Is Dialects accessible?",
+     "name": "Is it accessible?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. All text tokens and the main accent reach at least 4.5:1 contrast against every background, control edges reach at least 3:1, and every status colour is paired with a label and a marker shape so it never relies on colour alone."
+      "text": "Yes. Text tokens and the action accent reach at least 4.5:1 on every background, control edges reach 3:1, and every status colour carries a label and a marker shape, so colour is never the only signal."
      }
     },
     {
      "@type": "Question",
-     "name": "How do I install Dialects?",
+     "name": "How do I install it?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Install it from a tagged GitHub release with npm i github:Nerajno/dvlpr-dialects#v0.2.0, import tokens.css and utilities.css, and inline theme-init.js in the page head to set the surface and light or dark mode before first paint. A Tailwind CSS preset is included."
+      "text": "Run npm i github:Nerajno/dvlpr-dialects#v0.2.0. Import tokens.css and utilities.css, then inline theme-init.js in your page head to set the surface and mode before first paint. A Tailwind preset is included."
      }
     },
     {
      "@type": "Question",
-     "name": "Can I use Dialects in a commercial project?",
+     "name": "Can I use it commercially?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Not without permission. Dialects is licensed under the PolyForm Noncommercial License 1.0.0, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email nerando@developingdvlpr.com for a separate license."
+      "text": "Not without permission. Dialects is under the PolyForm Noncommercial License 1.0.0, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email nerando@developingdvlpr.com."
      }
     }
    ]
@@ -328,7 +328,9 @@
   .qa > p { margin: 0 0 1rem; color: var(--text-body); }
 
   footer { border-top: 1px solid var(--border); padding-block: 2rem 3rem; color: var(--text-muted); font-size: .875rem; }
-  footer pre { margin: .75rem 0 0; overflow-x: auto; background: var(--bg-alt); color: var(--text-strong); border-radius: var(--radius-md); padding: .75rem 1rem; font-size: .875rem; }
+  .colophon { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; margin: 0; }
+  .colophon dt { color: var(--text-soft); font-weight: 600; }
+  .colophon dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -544,31 +546,31 @@
     <div class="faq">
       <details class="qa" open>
         <summary><h3>What is Dialects?</h3></summary>
-        <p>Dialects is a source-available design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours.</p>
+        <p>A design-token layer for a set of related sites. One layer of CSS custom properties that every site shares, with four surfaces that each change a few dial variables: font, density and two accent colours.</p>
       </details>
       <details class="qa">
-        <summary><h3>What is a dialect in Dialects?</h3></summary>
-        <p>A dialect is how one surface speaks the shared tokens. The portfolio, learn, teach and build surfaces all use the same token names and classes, but each sets its own dials, so it gets its own font, density and accent colours.</p>
+        <summary><h3>What is a dialect?</h3></summary>
+        <p>How one surface speaks the shared tokens. Every surface uses the same token names and classes, but sets its own dials, so it gets its own font, density and colours.</p>
       </details>
       <details class="qa">
-        <summary><h3>Why does Dialects use OKLCH instead of hex?</h3></summary>
-        <p>OKLCH describes colour as lightness, chroma and hue, and equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools like Figma, but OKLCH is the source of truth.</p>
+        <summary><h3>Why OKLCH instead of hex?</h3></summary>
+        <p>Because equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools; OKLCH is the source of truth.</p>
       </details>
       <details class="qa">
-        <summary><h3>What are the Dialects accent colours?</h3></summary>
-        <p>Each surface has an action accent and a support accent: portfolio uses Quiet Violet and Signal Indigo, learn uses Notebook Ochre and Highlighter Plum, teach uses Chalkboard Teal and Pink Chalk, and build uses Workshop Orange and Blueprint Blue. Status colours are Go Green, Caution Yellow, Stop Red and Notice Blue.</p>
+        <summary><h3>What are the accent colours?</h3></summary>
+        <p>Each surface has an action accent for links and buttons, and a support accent for tags and highlights. Portfolio uses Quiet Violet and Signal Indigo; learn, Notebook Ochre and Highlighter Plum; teach, Chalkboard Teal and Pink Chalk; build, Workshop Orange and Blueprint Blue.</p>
       </details>
       <details class="qa">
-        <summary><h3>Is Dialects accessible?</h3></summary>
-        <p>Yes. All text tokens and the main accent reach at least 4.5:1 contrast against every background, control edges reach at least 3:1, and every status colour is paired with a label and a marker shape so it never relies on colour alone.</p>
+        <summary><h3>Is it accessible?</h3></summary>
+        <p>Yes. Text tokens and the action accent reach at least 4.5:1 on every background, control edges reach 3:1, and every status colour carries a label and a marker shape, so colour is never the only signal.</p>
       </details>
       <details class="qa">
-        <summary><h3>How do I install Dialects?</h3></summary>
-        <p>Install it from a tagged GitHub release with npm i github:Nerajno/dvlpr-dialects#v0.2.0, import tokens.css and utilities.css, and inline theme-init.js in the page head to set the surface and light or dark mode before first paint. A Tailwind CSS preset is included.</p>
+        <summary><h3>How do I install it?</h3></summary>
+        <p>Run <code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code>. Import <code>tokens.css</code> and <code>utilities.css</code>, then inline <code>theme-init.js</code> in your page head to set the surface and mode before first paint. A Tailwind preset is included.</p>
       </details>
       <details class="qa">
-        <summary><h3>Can I use Dialects in a commercial project?</h3></summary>
-        <p>Not without permission. Dialects is licensed under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm Noncommercial License 1.0.0</a>, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a> for a separate license.</p>
+        <summary><h3>Can I use it commercially?</h3></summary>
+        <p>Not without permission. Dialects is under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm Noncommercial License 1.0.0</a>, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a>.</p>
       </details>
     </div>
   </section>
@@ -576,8 +578,15 @@
 
 <footer>
   <div class="wrap">
-    <p>Dialects v0.2.0 · the token spine for developingdvlpr.com, by <a href="https://developingdvlpr.com" rel="author">Nerando Johnson</a> (<a href="https://github.com/Nerajno">@Nerajno</a>). Last updated <time datetime="2026-11-12">November 12, 2026</time>. Source and docs on <a href="https://github.com/Nerajno/dvlpr-dialects">GitHub</a>. Free for non-commercial use under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0" rel="license">PolyForm Noncommercial License 1.0.0</a>. Commercial licensing: <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a>. Install from a tagged release:</p>
-    <pre><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></pre>
+    <dl class="colophon">
+      <dt>Version</dt><dd>v0.2.0</dd>
+      <dt>By</dt><dd><a href="https://developingdvlpr.com" rel="author">Nerando Johnson</a> (<a href="https://github.com/Nerajno">@Nerajno</a>)</dd>
+      <dt>Updated</dt><dd><time datetime="2026-11-13">13 November 2026</time></dd>
+      <dt>Source</dt><dd><a href="https://github.com/Nerajno/dvlpr-dialects">github.com/Nerajno/dvlpr-dialects</a></dd>
+      <dt>License</dt><dd><a href="https://polyformproject.org/licenses/noncommercial/1.0.0" rel="license">PolyForm Noncommercial 1.0.0</a></dd>
+      <dt>Commercial use</dt><dd><a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a></dd>
+      <dt>Install</dt><dd><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></dd>
+    </dl>
   </div>
 </footer>
 
