@@ -1,0 +1,78 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import {
+  loadTerms, visibleText, crawlerText, stripCode, stripMdCode,
+  checkBanned, checkStatusPills, checkTermsTable, checkStructure,
+} from './check-copy.mjs';
+
+const terms = loadTerms();
+
+// ── Text helpers ──
+test('visibleText drops script, style and comments', () => {
+  assert.equal(visibleText('<style>a{}</style><!--x--><p>Hi&amp;yo</p><script>z()</script>'), 'Hi&yo');
+});
+
+test('stripMdCode removes fenced and inline code', () => {
+  assert.equal(stripMdCode('a `token spine` b\n```\ntoken spine\n```\nc').replace(/\s+/g, ' ').trim(), 'a b c');
+});
+
+// ── Banned terms ──
+test('banned: avoided phrase fails case-insensitively', () => {
+  const errs = checkBanned('The Token Spine is here', terms, 'f');
+  assert.equal(errs.length, 1);
+  assert.match(errs[0], /"token layer"/);
+});
+
+test('banned: meta content and JSON-LD are scanned, style comments are not', () => {
+  const html = '<meta name="description" content="a token spine"><style>/* token spine */</style>'
+    + '<script type="application/ld+json">{"a":"the main accent"}</script><script>/* second accent */</script>';
+  assert.equal(checkBanned(crawlerText(html), terms, 'f').length, 2);
+});
+
+test('banned: lowercase colour name in prose fails, inside code passes', () => {
+  assert.equal(checkBanned(stripCode('<p>the chalkboard teal</p>'), terms, 'f').length, 1);
+  assert.equal(checkBanned(stripCode('<code>chalkboard teal</code>'), terms, 'f').length, 0);
+  assert.equal(checkBanned(stripCode('<p>the Chalkboard Teal</p>'), terms, 'f').length, 0);
+});
+
+// ── Status pills ──
+test('status pills: "err" fails, "error" passes', () => {
+  assert.equal(checkStatusPills('<span class="status status-err">err</span>', terms).length, 1);
+  assert.equal(checkStatusPills('<span class="status status-err">error</span><span class="status status-ok">ok</span>', terms).length, 0);
+});
+
+// ── README Terms table ──
+const goodReadme = '# X\n\n## Terms\n\n| Idea | Use | Avoid |\n|---|---|---|\n'
+  + terms.terms.map((t) => `| ${t.idea} | ${t.use} | ${t.avoid.join(', ')} |`).join('\n') + '\n\n## Next\n';
+
+test('terms table: complete table passes', () => {
+  assert.deepEqual(checkTermsTable(goodReadme, terms), []);
+});
+
+test('terms table: missing row fails', () => {
+  const readme = goodReadme.split('\n').filter((l) => !l.includes('support accent')).join('\n');
+  assert.equal(checkTermsTable(readme, terms).length, 1);
+});
+
+test('terms table: missing section fails', () => {
+  assert.equal(checkTermsTable('# X\n', terms).length, 1);
+});
+
+// ── Structure ──
+const ld = '<script type="application/ld+json">{"a":1}</script>';
+
+test('structure: valid page passes', () => {
+  assert.deepEqual(checkStructure(`${ld}<h1>A</h1><button><span>b</span></button><h2>c</h2>`), []);
+});
+
+test('structure: two h1 fail', () => {
+  assert.equal(checkStructure(`${ld}<h1>A</h1><h1>B</h1>`).length, 1);
+});
+
+test('structure: heading in button fails', () => {
+  assert.equal(checkStructure(`${ld}<h1>A</h1><button type="button"><h3>x</h3></button>`).length, 1);
+});
+
+test('structure: bad JSON-LD fails', () => {
+  assert.equal(checkStructure('<script type="application/ld+json">{bad</script><h1>A</h1>').length, 1);
+});

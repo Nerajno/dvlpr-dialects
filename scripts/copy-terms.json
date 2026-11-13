@@ -1,0 +1,19 @@
+{
+  "terms": [
+    { "idea": "The shared token set", "use": "token layer", "avoid": ["token spine", "design-token system", "design token system"] },
+    { "idea": "`--accent`", "use": "action accent", "avoid": ["main accent"] },
+    { "idea": "`--accent-2`", "use": "support accent", "avoid": ["second accent"] },
+    { "idea": "Status pill labels", "use": "ok / warn / error / info", "avoid": [] },
+    { "idea": "Colour names", "use": "Title Case, e.g. Chalkboard Teal", "avoid": [] }
+  ],
+  "colourNames": [
+    "Quiet Violet", "Signal Indigo", "Notebook Ochre", "Highlighter Plum",
+    "Chalkboard Teal", "Pink Chalk", "Workshop Orange", "Blueprint Blue",
+    "Go Green", "Caution Yellow", "Stop Red", "Notice Blue"
+  ],
+  "statusLabels": ["ok", "warn", "error", "info"],
+  "noJsRequired": [
+    "Dialects is the design-token layer behind developingdvlpr.com",
+    "Nerando Johnson"
+  ]
+}
