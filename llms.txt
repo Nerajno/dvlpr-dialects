@@ -1,11 +1,11 @@
 # Dialects
 
-> Dialects is a source-available OKLCH design-token system by Nerando Johnson (@Nerajno) for developingdvlpr.com: one layer of CSS custom properties shared by every site, with four surface dialects (portfolio, learn, teach, build) that change only a few "dial" variables (font, density and two accent colours), in light and dark mode.
+> Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson (@Nerajno): one layer of CSS custom properties shared by every site, with four surface dialects (portfolio, learn, teach, build) that each set a few dials (font, density and two accent colours), in light and dark mode.
 
 Key facts:
 
 - Package: `@nerajno/dialects`, installed from GitHub tags: `npm i github:Nerajno/dvlpr-dialects#v0.2.0`
-- Files: `tokens.css` (the spine), `utilities.css`, `code.css` (Shiki css-variables theme), `fonts.css`, `theme-init.js` (sets surface and mode before first paint), `tailwind-preset.cjs` (Tailwind CSS 3.4+)
+- Files: `tokens.css` (the token layer), `utilities.css`, `code.css` (Shiki css-variables theme), `fonts.css`, `theme-init.js` (sets surface and mode before first paint), `tailwind-preset.cjs` (Tailwind CSS 3.4+)
 - Colour is written in `oklch()`; hex values are nearest-sRGB references for design tools.
 - Each surface has an action accent (`--accent`, for links, buttons and focus) and a support accent (`--accent-2`, for tags, highlights and code strings).
 - Accent names: portfolio Quiet Violet and Signal Indigo; learn Notebook Ochre and Highlighter Plum; teach Chalkboard Teal and Pink Chalk; build Workshop Orange and Blueprint Blue.
@@ -22,7 +22,7 @@ Key facts:
 
 ## Source
 
-- [tokens.css](https://github.com/Nerajno/dvlpr-dialects/blob/main/tokens.css): the token spine and every dial
+- [tokens.css](https://github.com/Nerajno/dvlpr-dialects/blob/main/tokens.css): the token layer and every dial
 - [Repository](https://github.com/Nerajno/dvlpr-dialects)
 
 ## Author

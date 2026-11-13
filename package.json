@@ -1,7 +1,7 @@
 {
   "name": "@nerajno/dialects",
   "version": "0.2.0",
-  "description": "The developingdvlpr.com token spine: one OKLCH token layer, four surface dialects (portfolio, learn, teach, build), light and dark.",
+  "description": "The developingdvlpr.com design-token layer: one OKLCH token layer, four surface dialects (portfolio, learn, teach, build), light and dark.",
   "scripts": {
     "test": "node --test scripts/check-copy.test.mjs",
     "check:copy": "node scripts/check-copy.mjs"
