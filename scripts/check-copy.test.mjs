@@ -76,3 +76,66 @@ test('structure: heading in button fails', () => {
 test('structure: bad JSON-LD fails', () => {
   assert.equal(checkStructure('<script type="application/ld+json">{bad</script><h1>A</h1>').length, 1);
 });
+
+// ── FAQ ↔ JSON-LD ──
+import { checkFaq, checkNoJs, checkDates } from './check-copy.mjs';
+
+const faqPage = (pairs, ldPairs = pairs) =>
+  '<script type="application/ld+json">' + JSON.stringify({ '@graph': [{ '@type': 'FAQPage', mainEntity:
+    ldPairs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] })
+  + '</script>' + pairs.map(([q, a]) => `<details class="qa"><summary><h3>${q}</h3></summary><p>${a}</p></details>`).join('');
+
+test('faq: matching pair passes', () => {
+  assert.deepEqual(checkFaq(faqPage([['Q one?', 'Answer one.']])), []);
+});
+
+test('faq: one-word drift fails', () => {
+  const errs = checkFaq(faqPage([['Q?', 'The quick fox.']], [['Q?', 'The slow fox.']]));
+  assert.equal(errs.length, 1);
+  assert.match(errs[0], /quick/);
+  assert.match(errs[0], /slow/);
+});
+
+test('faq: tags and entities are normalised before compare', () => {
+  assert.deepEqual(checkFaq(faqPage([['Q?', 'Run <code>npm i x</code> &amp; go.']], [['Q?', 'Run npm i x & go.']])), []);
+});
+
+test('faq: count mismatch fails', () => {
+  assert.equal(checkFaq(faqPage([['A?', 'a.'], ['B?', 'b.']], [['A?', 'a.']])).length >= 1, true);
+});
+
+// ── No-JS copy ──
+const fullPage = (extra = '') => faqPage([['What is Dialects?', 'A layer.']])
+  + `<p>${terms.noJsRequired.join('. ')}.</p><p>${terms.colourNames.join(', ')}</p>${extra}`;
+
+test('nojs: complete page passes', () => {
+  assert.deepEqual(checkNoJs(fullPage(), terms), []);
+});
+
+test('nojs: colour name only inside a script fails', () => {
+  const html = fullPage().replace('Pink Chalk', 'X') + '<script>var n = "Pink Chalk";</script>';
+  const errs = checkNoJs(html, terms);
+  assert.equal(errs.length, 1);
+  assert.match(errs[0], /Pink Chalk/);
+});
+
+test('nojs: FAQ question missing from visible text fails', () => {
+  const html = fullPage().replace('<h3>What is Dialects?</h3>', '<h3></h3>');
+  assert.equal(checkNoJs(html, terms).length, 1);
+});
+
+// ── Dates ──
+const sitemap = (d) => `<urlset><url><loc>x</loc><lastmod>${d}</lastmod></url></urlset>`;
+const footer = (d) => `<footer><time datetime="${d}">x</time></footer>`;
+
+test('dates: equal passes', () => {
+  assert.deepEqual(checkDates(footer('2026-11-13'), sitemap('2026-11-13')), []);
+});
+
+test('dates: differ fails', () => {
+  assert.equal(checkDates(footer('2026-11-13'), sitemap('2026-11-12')).length, 1);
+});
+
+test('dates: missing time fails', () => {
+  assert.equal(checkDates('<footer></footer>', sitemap('2026-11-12')).length, 1);
+});

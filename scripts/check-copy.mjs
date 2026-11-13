@@ -110,3 +110,48 @@ export function checkStructure(html) {
   });
   return errs;
 }
+
+// ── FAQ: visible <details> must match the FAQPage JSON-LD word for word ──
+export function extractFaqHtml(html) {
+  return [...html.matchAll(/<details\b[^>]*class="[^"]*\bqa\b[^"]*"[^>]*>([\s\S]*?)<\/details>/gi)].map((m) => ({
+    q: textOf((/<h3\b[^>]*>([\s\S]*?)<\/h3>/i.exec(m[1]) || [, ''])[1]),
+    a: textOf([...m[1].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map((p) => p[1]).join(' ')),
+  }));
+}
+
+export function extractFaqLd(html) {
+  for (const b of ldBlocks(html)) {
+    let data; try { data = JSON.parse(b); } catch { continue; }
+    const nodes = Array.isArray(data['@graph']) ? data['@graph'] : [data];
+    const faq = nodes.find((n) => n && n['@type'] === 'FAQPage');
+    if (faq) return (faq.mainEntity || []).map((e) => ({ q: squash(e.name || ''), a: squash(e.acceptedAnswer?.text || '') }));
+  }
+  return [];
+}
+
+export function checkFaq(html) {
+  const page = extractFaqHtml(html), ld = extractFaqLd(html), errs = [];
+  if (page.length !== ld.length) errs.push(`index.html: ${page.length} FAQ entries on the page, ${ld.length} in the FAQPage JSON-LD`);
+  for (let i = 0; i < Math.min(page.length, ld.length); i++) {
+    if (page[i].q !== ld[i].q) errs.push(`index.html: FAQ ${i + 1} question differs\n    page: ${page[i].q}\n    ld:   ${ld[i].q}`);
+    if (page[i].a !== ld[i].a) errs.push(`index.html: FAQ ${i + 1} answer differs ("${page[i].q}")\n    page: ${page[i].a}\n    ld:   ${ld[i].a}`);
+  }
+  return errs;
+}
+
+// ── No-JS: the definition, questions, colour names and author read without script ──
+export function checkNoJs(html, terms) {
+  const text = visibleText(html);
+  const need = [...terms.noJsRequired, ...terms.colourNames, ...extractFaqLd(html).map((e) => e.q)];
+  return need.filter((s) => !text.includes(s)).map((s) => `index.html: "${s}" is not readable with JavaScript off`);
+}
+
+// ── Dates: footer <time> and sitemap <lastmod> agree ──
+export function checkDates(html, sitemapXml) {
+  const footer = (/<footer\b[\s\S]*?<\/footer>/i.exec(html) || [''])[0];
+  const time = (/<time\b[^>]*datetime="([^"]+)"/i.exec(footer) || [])[1];
+  const lastmod = (/<lastmod>\s*([^<\s]+)\s*<\/lastmod>/i.exec(sitemapXml) || [])[1];
+  if (!time) return ['index.html: footer has no <time datetime>'];
+  if (!lastmod) return ['sitemap.xml: no <lastmod>'];
+  return time === lastmod ? [] : [`dates differ: footer <time> ${time}, sitemap <lastmod> ${lastmod}`];
+}
