@@ -251,6 +251,12 @@
   .sw .val { font: 400 .6875rem/1.4 var(--font-mono); color: var(--text-muted); overflow-wrap: anywhere; }
   .sw .val.hex { color: var(--text-soft); font-weight: 500; }
   .sw .use { font-size: .8125rem; color: var(--text-soft); line-height: 1.45; }
+  .names-wrap { overflow-x: auto; }
+  .names { width: 100%; border-collapse: collapse; margin-top: .75rem; font-size: .9375rem; }
+  .names caption { text-align: left; font: 500 .75rem/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); padding-bottom: .5rem; }
+  .names th, .names td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--border); }
+  .names thead th { color: var(--text-strong); }
+  .names tbody th { font-weight: 600; color: var(--text-strong); white-space: nowrap; }
   .ratio { font: 700 .6875rem/1 var(--font-mono); padding: .25rem .4rem; border-radius: 4px; background: var(--bg-card); color: var(--text-strong); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
 
   /* Type */
@@ -320,11 +326,6 @@
   .qa > summary h3 { display: inline; font-size: 1.0625rem; font-family: var(--font-body); }
   .qa > summary:hover h3 { color: var(--accent); }
   .qa > p { margin: 0 0 1rem; color: var(--text-body); }
-  .names { width: 100%; border-collapse: collapse; margin-top: .75rem; font-size: .9375rem; }
-  .names caption { text-align: left; font: 500 .75rem/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); padding-bottom: .5rem; }
-  .names th, .names td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--border); }
-  .names thead th { color: var(--text-strong); }
-  .names tbody th { font: 500 .875rem var(--font-mono); color: var(--text-strong); }
 
   footer { border-top: 1px solid var(--border); padding-block: 2rem 3rem; color: var(--text-muted); font-size: .875rem; }
   footer pre { margin: .75rem 0 0; overflow-x: auto; background: var(--bg-alt); color: var(--text-strong); border-radius: var(--radius-md); padding: .75rem 1rem; font-size: .875rem; }
@@ -391,16 +392,37 @@
   <section class="block" id="colour">
     <div class="block-head">
       <h2>Colour</h2>
-      <p>Values are read live from the page, so they always match the surface and mode you're viewing. Each swatch shows its <code>oklch()</code> source value and the nearest sRGB hex for design tools (≈ means the colour is outside sRGB and the hex is clipped). The corner figure is the contrast ratio against <code>--bg</code>.</p>
+      <p>Every colour here is worked out from the current surface's dials. Each swatch shows the OKLCH value the CSS uses, the nearest hex for design tools, and a contrast badge against the page background.</p>
+      <p>≈ means the colour sits outside sRGB, so the hex is the closest match.</p>
     </div>
     <div class="groups" id="groups"></div>
+    <div class="names-wrap">
+      <table class="names">
+        <caption>Named colours</caption>
+        <thead><tr><th scope="col">Name</th><th scope="col">Token</th><th scope="col">Surface</th><th scope="col">Job</th><th scope="col">Light</th><th scope="col">Dark</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Quiet Violet</th><td><code>--accent</code></td><td>portfolio</td><td>action</td><td><code>#596378</code></td><td><code>#9AABCE</code></td></tr>
+          <tr><th scope="row">Signal Indigo</th><td><code>--accent-2</code></td><td>portfolio</td><td>support</td><td><code>#3E5FAD</code></td><td><code>#86A9F7</code></td></tr>
+          <tr><th scope="row">Notebook Ochre</th><td><code>--accent</code></td><td>learn</td><td>action</td><td><code>#805307</code></td><td><code>#D39747</code></td></tr>
+          <tr><th scope="row">Highlighter Plum</th><td><code>--accent-2</code></td><td>learn</td><td>support</td><td><code>#7A4D94</code></td><td><code>#C296DD</code></td></tr>
+          <tr><th scope="row">Chalkboard Teal</th><td><code>--accent</code></td><td>teach</td><td>action</td><td><code>#166E54</code></td><td><code>#54BB97</code></td></tr>
+          <tr><th scope="row">Pink Chalk</th><td><code>--accent-2</code></td><td>teach</td><td>support</td><td><code>#973F6E</code></td><td><code>#E38AB5</code></td></tr>
+          <tr><th scope="row">Workshop Orange</th><td><code>--accent</code></td><td>build</td><td>action</td><td><code>#AA3606</code></td><td><code>#FF7B4F</code></td></tr>
+          <tr><th scope="row">Blueprint Blue</th><td><code>--accent-2</code></td><td>build</td><td>support</td><td><code>#116D8A</code></td><td><code>#71B6D1</code></td></tr>
+          <tr><th scope="row">Go Green</th><td><code>--success</code></td><td>all</td><td>ok</td><td><code>#409D48</code></td><td><code>#67BB6B</code></td></tr>
+          <tr><th scope="row">Caution Yellow</th><td><code>--warning</code></td><td>all</td><td>warn</td><td><code>#CDAF33</code></td><td><code>#DEC358</code></td></tr>
+          <tr><th scope="row">Stop Red</th><td><code>--danger</code></td><td>all</td><td>error</td><td><code>#C5353E</code></td><td><code>#EF6567</code></td></tr>
+          <tr><th scope="row">Notice Blue</th><td><code>--info</code></td><td>all</td><td>info</td><td><code>#338FC7</code></td><td><code>#55AEE8</code></td></tr>
+        </tbody>
+      </table>
+    </div>
     <noscript><p>The swatches are built with JavaScript. Every token value is also listed in the <a href="https://github.com/Nerajno/dvlpr-dialects#tokens">README</a>.</p></noscript>
   </section>
 
   <section class="block" id="type">
     <div class="block-head">
       <h2>Type</h2>
-      <p>Body and headings come from <code>--font-body</code> and <code>--font-heading</code>, which each surface resolves. Teach sets its headings in Fraunces.</p>
+      <p>Body and heading faces come from <code>--font-body</code> and <code>--font-heading</code>. Each surface resolves them: learn and build run mono throughout, teach sets its headings in Fraunces.</p>
     </div>
     <div class="faces">
       <div class="face"><span class="big" style="font-family:var(--font-sans)">Aa</span><span class="role">--font-sans · Plus Jakarta Sans<br>body on portfolio and teach</span></div>
@@ -411,9 +433,9 @@
       <div class="post-inner">
         <p class="eyebrow">Series · In The Middle</p>
         <h3 class="post-title">Progress over perfection</h3>
-        <div class="meta"><span>Oct 31, 2026</span><span>•</span><span>6 min read</span><span>•</span><span>412 views</span></div>
+        <div class="meta"><span>Oct 31, 2026</span><span>•</span><span>6 min read</span></div>
         <div class="prose">
-          <p>I used to rebuild the design system every time a site changed. Now there's one spine, and each surface only turns its dials. The blog runs on <code>teach</code>, so links like <a href="#type">this one</a> pick up the chalkboard teal.</p>
+          <p>I used to rebuild the design system every time a site changed. Now there's one token layer, and each surface only turns its dials. The blog runs on <code>teach</code>, so links like <a href="#type">this one</a> pick up Chalkboard Teal.</p>
           <h4>What I learnt shipping it</h4>
           <p>Contrast is a number you can check. Every text token clears 4.5:1 on every background, in every surface, light and dark.</p>
           <h5>The tradeoff</h5>
@@ -426,21 +448,20 @@
   <section class="block" id="components">
     <div class="block-head">
       <h2>Components</h2>
-      <p>The same markup on every surface. Only the tokens underneath change.</p>
+      <p>Same markup on every surface. Only the tokens underneath change.</p>
     </div>
     <div class="comps">
       <div class="comp">
         <p class="label">Buttons</p>
-        <div class="row"><button type="button" class="btn btn-primary">Primary action</button><button type="button" class="btn btn-secondary">Read the next post</button></div>
+        <div class="row"><button type="button" class="btn btn-primary">Save changes</button><button type="button" class="btn btn-secondary">Read the next post</button></div>
       </div>
       <div class="comp">
-        <p class="label">Status pills · shape + colour</p>
-        <div class="row"><span class="status status-ok">ok</span><span class="status status-warn">warn</span><span class="status status-err">err</span><span class="status status-info">info</span></div>
-        <div class="row"><span class="dial-badge">font: <b>sans</b> · density: <b>1×</b> · hue: <b>168</b></span></div>
+        <p class="label">Status pills</p>
+        <div class="row"><span class="status status-ok">ok</span><span class="status status-warn">warn</span><span class="status status-err">error</span><span class="status status-info">info</span></div>
       </div>
       <div class="comp">
-        <p class="label">Second accent · accent-2</p>
-        <p style="margin:0;font-size:.9375rem;color:var(--text-body)">A <a href="#components">link</a> stays in the main accent. Supporting details, like a <mark class="hl">highlighted phrase</mark>, use <code style="white-space:nowrap">--accent-2</code>.</p>
+        <p class="label">Support accent (<code>--accent-2</code>)</p>
+        <p style="margin:0;font-size:.9375rem;color:var(--text-body)">A <a href="#components">link</a> stays in the action accent. Supporting details, like a <mark class="hl">highlighted phrase</mark>, use <code style="white-space:nowrap">--accent-2</code>.</p>
         <div class="row"><span class="tag2">#vue</span><span class="tag2">#tokens</span><span class="tag2 outline">draft</span></div>
       </div>
       <div class="comp">
@@ -452,7 +473,7 @@
         </div>
       </div>
       <div class="comp">
-        <p class="label">Card · shadow-card</p>
+        <p class="label">Card (<code>--shadow-md</code>)</p>
         <div class="card-demo"><h4>A Clearer Vue</h4><p>A Vue 3 article series with companion projects.</p><a href="#components">Read the series</a></div>
       </div>
       <div class="comp">
@@ -470,7 +491,8 @@
   <section class="block" id="code">
     <div class="block-head">
       <h2>Code</h2>
-      <p>Shiki's css-variables theme, coloured by <code>code.css</code>. Keywords take this surface's accent and strings take its <code>--accent-2</code>; functions and constants take other surfaces' accents.</p>
+      <p>Code blocks read the same tokens. Keywords take the action accent and strings take the support accent; functions and constants borrow other surfaces' colours, so no two roles share one.</p>
+      <p>Set Shiki to the <code>css-variables</code> theme and import <code>code.css</code>.</p>
     </div>
     <div class="codes">
       <div class="legend">
@@ -498,7 +520,7 @@
   <section class="block" id="shape">
     <div class="block-head">
       <h2>Shape, depth and space</h2>
-      <p>Radii and timing are the same on every surface. Shadows take the surface hue. Spacing is in rem, so it follows the density dial.</p>
+      <p>Radii and shadow sizes are the same on every surface. Shadows pick up the surface hue, and spacing is in rem, so it follows the density dial.</p>
     </div>
     <div class="shapes">
       <div class="shape"><span class="box" style="border-radius:var(--radius-sm)"></span><span class="label">radius-sm · 4px</span></div>
@@ -548,16 +570,6 @@
         <summary><h3>Can I use Dialects in a commercial project?</h3></summary>
         <p>Not without permission. Dialects is licensed under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm Noncommercial License 1.0.0</a>, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a> for a separate license.</p>
       </details>
-      <table class="names">
-        <caption>Named colours, light mode hex</caption>
-        <thead><tr><th scope="col">Surface</th><th scope="col">Action accent</th><th scope="col">Support accent</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">portfolio</th><td>Quiet Violet <code>#596378</code></td><td>Signal Indigo <code>#3E5FAD</code></td></tr>
-          <tr><th scope="row">learn</th><td>Notebook Ochre <code>#805307</code></td><td>Highlighter Plum <code>#7A4D94</code></td></tr>
-          <tr><th scope="row">teach</th><td>Chalkboard Teal <code>#166E54</code></td><td>Pink Chalk <code>#973F6E</code></td></tr>
-          <tr><th scope="row">build</th><td>Workshop Orange <code>#AA3606</code></td><td>Blueprint Blue <code>#116D8A</code></td></tr>
-        </tbody>
-      </table>
     </div>
   </section>
 </main>
@@ -574,10 +586,10 @@
   var h = document.documentElement;
   var GROUPS = [
     ['Surfaces', [['bg','Page background'],['bg-alt','Bands, inline code, code blocks'],['bg-card','Cards; label on accent buttons'],['bg-elevated','Menus and popovers']]],
-    ['Text', [['text-strong','Headings'],['text-body','Running copy'],['text-soft','Secondary copy'],['text-muted','Dates, read time, views']]],
+    ['Text', [['text-strong','Headings'],['text-body','Running copy'],['text-soft','Secondary copy'],['text-muted','Dates and read time']]],
     ['Accent', [['accent','Links, primary button, focus ring'],['accent-hover','Hover for links and fills'],['accent-soft','Tinted fill (decorative in dark)'],['accent-2','Tags, highlights, code strings'],['accent-2-soft','Fill behind --accent-2 text']]],
     ['Borders', [['border','Decorative hairline'],['border-strong','Control edges, ≥3:1']]],
-    ['Status', [['success','ok · circle marker'],['warning','warn · triangle marker'],['danger','err · square marker'],['info','info · diamond marker']]],
+    ['Status', [['success','ok · circle marker'],['warning','warn · triangle marker'],['danger','error · square marker'],['info','info · diamond marker']]],
     ['Cross-surface', [['dial-portfolio','Portfolio accent'],['dial-learn','Learn accent'],['dial-teach','Teach accent'],['dial-build','Build accent']]]
   ];
   var TEXTLIKE = { 'text-strong':1,'text-body':1,'text-soft':1,'text-muted':1,'accent':1,'accent-hover':1,'accent-2':1,'border-strong':1,'border':1,'dial-portfolio':1,'dial-learn':1,'dial-teach':1,'dial-build':1 };
@@ -659,7 +671,7 @@
       '<span class="dial-badge">font: <b>' + d[0] + '</b></span>' +
       '<span class="dial-badge">density: <b>' + d[1] + '</b></span>' +
       '<span class="dial-badge">hue: <b>' + d[2] + '</b> · chroma: <b>' + d[3] + '</b></span>' +
-      '<span class="dial-badge">accent-2 hue: <b>' + d[4] + '</b> · chroma: <b>' + d[5] + '</b></span>' +
+      '<span class="dial-badge">support accent hue: <b>' + d[4] + '</b> · chroma: <b>' + d[5] + '</b></span>' +
       '<span class="dial-badge">colours: <b>' + NAMES[surface][0] + '</b> + <b>' + NAMES[surface][1] + '</b></span>';
     document.querySelectorAll('[data-cname]').forEach(function (el) { var n = colourName(el.getAttribute('data-cname'), surface); el.textContent = n; el.hidden = !n; });
     document.querySelectorAll('[data-surface]').forEach(function (b) {
