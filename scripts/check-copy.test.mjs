@@ -198,3 +198,21 @@ test('links: offline skips external fetches', async () => {
 test('status pills: pill nested inside another classed element is still checked', () => {
   assert.equal(checkStatusPills('<div class="row"><span class="status status-err">err</span></div>', terms).length, 1);
 });
+
+// ── Final review regressions ──
+test('banned: a "<code>" string inside a script does not hide later prose', () => {
+  const html = `<script>var t = '<code>';</script><p>the token spine</p><p><code>chalkboard teal</code></p>`;
+  const errs = checkBanned(crawlerText(html, { skipCode: true }), terms, 'f');
+  assert.equal(errs.length, 1);
+  assert.match(errs[0], /token spine/);
+});
+
+test('faq: text outside <p> in an answer is compared too', () => {
+  const html = faqPage([['Q?', 'Same.']]).replace('<p>Same.</p>', '<p>Same.</p><ul><li>Extra</li></ul>');
+  assert.equal(checkFaq(html).length, 1);
+});
+
+test('structure: "Current" badge must ship hidden so JS-off copy does not mark every surface current', () => {
+  assert.equal(checkStructure(`${ld}<h1>A</h1><span class="now">Current</span>`).length, 1);
+  assert.deepEqual(checkStructure(`${ld}<h1>A</h1><span class="now" hidden>Current</span>`), []);
+});

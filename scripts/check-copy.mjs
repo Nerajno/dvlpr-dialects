@@ -28,11 +28,12 @@ export function textOf(html) {
 }
 
 /** What a crawler with JavaScript off reads: no comments, styles or scripts. */
-export function visibleText(html) {
-  return textOf(html
+export function visibleText(html, { skipCode = false } = {}) {
+  const visible = html
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<script\b[\s\S]*?<\/script>/gi, ' '));
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ');
+  return textOf(skipCode ? stripCode(visible) : visible);
 }
 
 function ldBlocks(html) {
@@ -45,14 +46,14 @@ function strings(v, out = []) {
   return out;
 }
 
-/** visibleText plus meta content, alt text and JSON-LD strings. */
-export function crawlerText(html) {
+/** visibleText plus meta content, alt text and JSON-LD strings. skipCode drops <pre>/<code> after scripts are gone. */
+export function crawlerText(html, { skipCode = false } = {}) {
   const attrs = [
     ...[...html.matchAll(/<meta\b[^>]*\bcontent="([^"]*)"/gi)].map((m) => m[1]),
     ...[...html.matchAll(/\balt="([^"]*)"/gi)].map((m) => m[1]),
   ].map(decode);
   const ld = ldBlocks(html).flatMap((b) => { try { return strings(JSON.parse(b)); } catch { return [b]; } });
-  return [visibleText(html), ...attrs, ...ld].join('\n');
+  return [visibleText(html, { skipCode }), ...attrs, ...ld].join('\n');
 }
 
 export function stripCode(html) {
@@ -104,6 +105,8 @@ export function checkStructure(html) {
   for (const b of html.matchAll(/<button\b[^>]*>([\s\S]*?)<\/button>/gi)) {
     if (/<h[1-6][\s>]/i.test(b[1])) errs.push(`index.html: heading inside <button>: ${textOf(b[1]).slice(0, 40)}`);
   }
+  const shown = [...html.matchAll(/<\w+\b[^>]*\bclass="(?:[^"]*\s)?now(?:\s[^"]*)?"[^>]*>/g)].filter((m) => !/\shidden[\s>=]/.test(m[0])).length;
+  if (shown) errs.push(`index.html: ${shown} "Current" badge(s) not marked hidden; with JavaScript off every surface would read as current`);
   ldBlocks(html).forEach((b, i) => {
     try { JSON.parse(b); } catch (e) { errs.push(`index.html: JSON-LD block ${i + 1} does not parse: ${e.message}`); }
   });
@@ -114,7 +117,7 @@ export function checkStructure(html) {
 export function extractFaqHtml(html) {
   return [...html.matchAll(/<details\b[^>]*class="[^"]*\bqa\b[^"]*"[^>]*>([\s\S]*?)<\/details>/gi)].map((m) => ({
     q: textOf((/<h3\b[^>]*>([\s\S]*?)<\/h3>/i.exec(m[1]) || [, ''])[1]),
-    a: textOf([...m[1].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map((p) => p[1]).join(' ')),
+    a: textOf(m[1].replace(/^[\s\S]*?<\/summary>/i, '')),
   }));
 }
 
@@ -235,7 +238,7 @@ export async function main(argv = []) {
 
   const errors = [
     ...checkFaq(html),
-    ...checkBanned(crawlerText(stripCode(html)), terms, 'index.html'),
+    ...checkBanned(crawlerText(html, { skipCode: true }), terms, 'index.html'),
     ...checkBanned(stripMdCode(readme), terms, 'README.md'),
     ...checkBanned(stripMdCode(llms), terms, 'llms.txt'),
     ...checkStatusPills(html, terms),
