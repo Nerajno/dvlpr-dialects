@@ -355,28 +355,14 @@
 
 <main class="wrap" id="top">
   <div class="hero">
-    <p class="eyebrow">developingdvlpr.com · design tokens</p>
+    <p class="eyebrow">design tokens · developingdvlpr.com</p>
     <h1>One token layer,<br>four dialects.</h1>
-    <p class="lede"><strong>Dialects</strong> is the design-token layer behind developingdvlpr.com. One set of token names and classes; four surfaces that each speak them a little differently.</p>
+    <p class="lede"><strong>Dialects</strong> is the design-token layer behind my projects ( including developingdvlpr.com). One set of token names and classes; four surfaces that each speak them a little differently.</p>
     <p class="lede">Each surface sets a handful of dials: the font, how dense the type sits, and two accent colours. Everything else — backgrounds, borders, shadows — is worked out from those. Dark mode uses the same dials with the lightness flipped.</p>
+    <p class="lede">This approach ensures consistency across all my projects while allowing each to have its own unique character. This was also a solution to the problem of maintaining a consistent look and feel across multiple projects and as result of looking into how <a href="https://www.florin-pop.com/projects/" target="_blank" rel="noopener noreferrer">@Florin Pop</a> used his purple design across his various projects.</p>
     <p class="switch-hint">Pick a surface and a mode. The whole page follows.</p>
     <div class="readout" id="readout" aria-live="polite"></div>
   </div>
-
-  <section class="block" id="start">
-    <div class="block-head">
-      <h2>Get started</h2>
-      <p>Install from a tagged release, import the CSS, and set the surface before the page paints.</p>
-    </div>
-    <div class="codes">
-<pre><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></pre>
-<pre><code>@import "@nerajno/dialects/fonts.css";
-@import "@nerajno/dialects/tokens.css";
-@import "@nerajno/dialects/utilities.css";
-@import "@nerajno/dialects/code.css";</code></pre>
-    </div>
-    <p class="start-note">Then inline <code>theme-init.js</code> in your <code>&lt;head&gt;</code> with <code>data-surface</code> set. Full setup, including the Tailwind preset, is in the <a href="https://github.com/Nerajno/dvlpr-dialects#use">README</a>.</p>
-  </section>
 
   <section class="block" id="surfaces">
     <div class="block-head">
@@ -536,6 +522,21 @@
       <div class="shape"><span class="lift" style="box-shadow:var(--shadow-lg)"></span><span class="label">shadow-lg · popovers</span></div>
     </div>
     <div class="spaces" id="spaces"></div>
+  </section>
+
+    <section class="block" id="start">
+    <div class="block-head">
+      <h2>Get started</h2>
+      <p>Install from a tagged release, import the CSS, and set the surface before the page paints.</p>
+    </div>
+    <div class="codes">
+<pre><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></pre>
+<pre><code>@import "@nerajno/dialects/fonts.css";
+@import "@nerajno/dialects/tokens.css";
+@import "@nerajno/dialects/utilities.css";
+@import "@nerajno/dialects/code.css";</code></pre>
+    </div>
+    <p class="start-note">Then inline <code>theme-init.js</code> in your <code>&lt;head&gt;</code> with <code>data-surface</code> set. Full setup, including the Tailwind preset, is in the <a href="https://github.com/Nerajno/dvlpr-dialects#use">README</a>.</p>
   </section>
 
   <section class="block" id="faq" aria-labelledby="faq-title">
