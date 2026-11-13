@@ -139,3 +139,62 @@ test('dates: differ fails', () => {
 test('dates: missing time fails', () => {
   assert.equal(checkDates('<footer></footer>', sitemap('2026-11-12')).length, 1);
 });
+
+// ── Links ──
+import { githubSlug, checkLinks } from './check-copy.mjs';
+import { mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
+const root = mkdtempSync(join(tmpdir(), 'copy-'));
+writeFileSync(join(root, 'llms.txt'), 'x');
+const ok200 = async () => ({ status: 200 });
+const page = (body) => `<button data-surface="teach">t</button><section id="faq"></section>${body}`;
+
+test('slug: "Search and AI visibility" -> "search-and-ai-visibility"', () => {
+  assert.equal(githubSlug('Search and AI visibility'), 'search-and-ai-visibility');
+  assert.equal(githubSlug('Tailwind (optional, v3.4+)'), 'tailwind-optional-v34');
+});
+
+test('links: surface hashes pass, unknown hash fails', async () => {
+  const good = await checkLinks({ html: page('<a href="#teach">t</a><a href="#faq">f</a>'), readme: '', root, fetchImpl: ok200 });
+  assert.deepEqual(good.errors, []);
+  const bad = await checkLinks({ html: page('<a href="#nope">n</a>'), readme: '', root, fetchImpl: ok200 });
+  assert.equal(bad.errors.length, 1);
+});
+
+test('links: missing relative file fails', async () => {
+  const r = await checkLinks({ html: page('<a href="llms.txt">a</a><link href="gone.png">'), readme: '', root, fetchImpl: ok200 });
+  assert.equal(r.errors.length, 1);
+  assert.match(r.errors[0], /gone\.png/);
+});
+
+test('links: 404 becomes a warning', async () => {
+  const r = await checkLinks({ html: page('<a href="https://x.test/a">a</a>'), readme: '', root, fetchImpl: async () => ({ status: 404 }) });
+  assert.deepEqual(r.errors, []);
+  assert.equal(r.warnings.length, 1);
+});
+
+test('links: fetch rejection becomes a warning', async () => {
+  const r = await checkLinks({ html: page('<a href="https://x.test/a">a</a>'), readme: '', root, fetchImpl: async () => { throw new Error('offline'); } });
+  assert.deepEqual(r.errors, []);
+  assert.equal(r.warnings.length, 1);
+});
+
+test('links: README anchor to missing heading fails', async () => {
+  const readme = '# T\n\n## Colour names\n\n[a](#colour-names) [b](#nope) [c](llms.txt) [d](mailto:a@b.c)\n';
+  const r = await checkLinks({ html: page(''), readme, root, fetchImpl: ok200 });
+  assert.equal(r.errors.length, 1);
+  assert.match(r.errors[0], /#nope/);
+});
+
+test('links: offline skips external fetches', async () => {
+  let called = false;
+  const r = await checkLinks({ html: page('<a href="https://x.test/a">a</a>'), readme: '', root, offline: true, fetchImpl: async () => { called = true; return { status: 200 }; } });
+  assert.equal(called, false);
+  assert.deepEqual(r, { errors: [], warnings: [] });
+});
+
+test('status pills: pill nested inside another classed element is still checked', () => {
+  assert.equal(checkStatusPills('<div class="row"><span class="status status-err">err</span></div>', terms).length, 1);
+});

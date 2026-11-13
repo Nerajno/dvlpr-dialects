@@ -1,0 +1,27 @@
+name: Check copy
+
+on:
+  pull_request:
+    paths:
+      - index.html
+      - llms.txt
+      - README.md
+      - sitemap.xml
+      - scripts/**
+      - .github/workflows/check-copy.yml
+
+permissions:
+  contents: read
+
+jobs:
+  check-copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Unit tests
+        run: npm test
+      - name: Check copy
+        run: npm run check:copy
