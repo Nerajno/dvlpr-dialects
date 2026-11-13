@@ -9,8 +9,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F8FAFE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0D12" media="(prefers-color-scheme: dark)">
-<title>Dialects: an OKLCH design-token system with four surface dialects</title>
-<meta name="description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<title>Dialects: an OKLCH design-token layer with four surface dialects</title>
+<meta name="description" content="Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta name="author" content="Nerando Johnson">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://nerajno.github.io/dvlpr-dialects/">
@@ -20,7 +20,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dialects">
 <meta property="og:title" content="Dialects: one token layer, four dialects">
-<meta property="og:description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta property="og:description" content="Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta property="og:url" content="https://nerajno.github.io/dvlpr-dialects/">
 <meta property="og:image" content="https://nerajno.github.io/dvlpr-dialects/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dialects: one token layer, four dialects">
-<meta name="twitter:description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta name="twitter:description" content="Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta name="twitter:image" content="https://nerajno.github.io/dvlpr-dialects/og-image.png">
 <meta name="twitter:image:alt" content="Dialects: four surface accent colours in a grid beside the title One token layer, four dialects">
 <script type="application/ld+json">
@@ -41,7 +41,7 @@
    "@id": "https://nerajno.github.io/dvlpr-dialects/#website",
    "url": "https://nerajno.github.io/dvlpr-dialects/",
    "name": "Dialects",
-   "description": "Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
+   "description": "Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.",
    "inLanguage": "en",
    "publisher": {
     "@id": "https://developingdvlpr.com/#person"
@@ -63,7 +63,7 @@
    "@id": "https://nerajno.github.io/dvlpr-dialects/#code",
    "name": "Dialects",
    "alternateName": "@nerajno/dialects",
-   "description": "Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
+   "description": "Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.",
    "codeRepository": "https://github.com/Nerajno/dvlpr-dialects",
    "programmingLanguage": [
     "CSS",
@@ -169,7 +169,7 @@
 <link rel="stylesheet" href="code.css">
 <style>
   /* Layout: a dial strip pinned at the top, then one long specimen sheet in rem,
-     so the whole page breathes with --dial-type-scale. Every colour is a spine token. */
+     so the whole page breathes with --dial-type-scale. Every colour is a token-layer token. */
   html { scroll-padding-top: 5rem; }
   body {
     margin: 0;
@@ -210,6 +210,8 @@
   .eyebrow { font: 500 .875rem/1.4 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin: 0; }
   .hero h1 { font-family: var(--font-display); font-size: clamp(2.75rem, 7vw, 4.75rem); line-height: .95; letter-spacing: -.025em; font-weight: 700; }
   .lede { max-width: 38rem; font-size: 1.125rem; color: var(--text-soft); margin: 0; }
+  .switch-hint { margin: 0; font-size: .9375rem; color: var(--text-muted); }
+  .start-note { margin: 0; max-width: 40rem; color: var(--text-soft); }
   .readout { display: flex; flex-wrap: wrap; gap: .5rem; }
   .dial-badge { font: 400 .75rem/1.5 var(--font-mono); color: var(--text-soft); background: var(--bg-alt);
     border: 1px solid var(--border); border-radius: 6px; padding: .25rem .5rem; }
@@ -232,7 +234,11 @@
   .surface .bar { height: 2.5rem; border-radius: var(--radius-md); }
   .surface .sname { font-size: 1.125rem; font-weight: 700; color: var(--text-strong); }
   .surface .k { font: 400 .75rem/1.5 var(--font-mono); color: var(--text-muted); }
-  .surface .now { font: 700 .6875rem/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-strong); }
+  .surface .sname-row { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+  .surface .facts { display: grid; gap: .1rem; }
+  .surface .k b { color: var(--text-soft); font-weight: 500; margin-right: .35em; }
+  .surface .now { font: 700 .6875rem/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-strong);
+    border: 1px solid var(--border-strong); border-radius: 999px; padding: .2rem .45rem; }
 
   /* Colour */
   .groups { display: grid; gap: 1.75rem; }
@@ -346,22 +352,39 @@
 
 <main class="wrap" id="top">
   <div class="hero">
-    <p class="eyebrow">developingdvlpr.com · token spine</p>
+    <p class="eyebrow">developingdvlpr.com · design tokens</p>
     <h1>One token layer,<br>four dialects.</h1>
-    <p class="lede"><strong>Dialects</strong> is a source-available OKLCH design-token system by <a href="https://developingdvlpr.com">Nerando Johnson</a> for developingdvlpr.com. Every surface uses the same token names and the same classes. Five dials change underneath: font, density, and the accent's hue, saturation and lightness. Two more set a second accent for supporting details. Switch surface and mode at the top; everything on this page follows.</p>
+    <p class="lede"><strong>Dialects</strong> is the design-token layer behind developingdvlpr.com. One set of token names and classes; four surfaces that each speak them a little differently.</p>
+    <p class="lede">Each surface sets a handful of dials: the font, how dense the type sits, and two accent colours. Everything else — backgrounds, borders, shadows — is worked out from those. Dark mode uses the same dials with the lightness flipped.</p>
+    <p class="switch-hint">Pick a surface and a mode. The whole page follows.</p>
     <div class="readout" id="readout" aria-live="polite"></div>
   </div>
+
+  <section class="block" id="start">
+    <div class="block-head">
+      <h2>Get started</h2>
+      <p>Install from a tagged release, import the CSS, and set the surface before the page paints.</p>
+    </div>
+    <div class="codes">
+<pre><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></pre>
+<pre><code>@import "@nerajno/dialects/fonts.css";
+@import "@nerajno/dialects/tokens.css";
+@import "@nerajno/dialects/utilities.css";
+@import "@nerajno/dialects/code.css";</code></pre>
+    </div>
+    <p class="start-note">Then inline <code>theme-init.js</code> in your <code>&lt;head&gt;</code> with <code>data-surface</code> set. Full setup, including the Tailwind preset, is in the <a href="https://github.com/Nerajno/dvlpr-dialects#use">README</a>.</p>
+  </section>
 
   <section class="block" id="surfaces">
     <div class="block-head">
       <h2>Surfaces</h2>
-      <p>Each part of the site speaks its own dialect. Pick one to restyle the page.</p>
+      <p>Each part of the site speaks its own dialect. Pick one and the page re-skins.</p>
     </div>
     <div class="surfaces">
-      <button type="button" class="surface" data-surface="portfolio"><span class="bar" style="background:var(--dial-portfolio)"></span><span class="sname" style="font-family:var(--font-sans)">portfolio</span><span class="k">the front door · sans · 1.125× · Quiet Violet + Signal Indigo</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="learn"><span class="bar" style="background:var(--dial-learn)"></span><span class="sname" style="font-family:var(--font-mono)">learn</span><span class="k">the notebook · mono · 0.875× · Notebook Ochre + Highlighter Plum</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="teach"><span class="bar" style="background:var(--dial-teach)"></span><span class="sname" style="font-family:var(--font-display)">teach</span><span class="k">the lecture · sans + Fraunces · 1× · Chalkboard Teal + Pink Chalk</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="build"><span class="bar" style="background:var(--dial-build)"></span><span class="sname" style="font-family:var(--font-mono)">build</span><span class="k">the workbench · mono · 0.875× · Workshop Orange + Blueprint Blue</span><span class="now">Current</span></button>
+      <button type="button" class="surface" data-surface="portfolio"><span class="bar" style="background:var(--dial-portfolio)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-sans)">portfolio</span><span class="now">Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the front door</span><span class="k"><b>Font</b> Plus Jakarta Sans</span><span class="k"><b>Density</b> 1.125×</span><span class="k"><b>Colours</b> Quiet Violet, Signal Indigo</span></span></button>
+      <button type="button" class="surface" data-surface="learn"><span class="bar" style="background:var(--dial-learn)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-mono)">learn</span><span class="now">Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the notebook</span><span class="k"><b>Font</b> JetBrains Mono</span><span class="k"><b>Density</b> 0.875×</span><span class="k"><b>Colours</b> Notebook Ochre, Highlighter Plum</span></span></button>
+      <button type="button" class="surface" data-surface="teach"><span class="bar" style="background:var(--dial-teach)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-display)">teach</span><span class="now">Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the lecture</span><span class="k"><b>Font</b> Plus Jakarta Sans, Fraunces headings</span><span class="k"><b>Density</b> 1×</span><span class="k"><b>Colours</b> Chalkboard Teal, Pink Chalk</span></span></button>
+      <button type="button" class="surface" data-surface="build"><span class="bar" style="background:var(--dial-build)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-mono)">build</span><span class="now">Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the workbench</span><span class="k"><b>Font</b> JetBrains Mono</span><span class="k"><b>Density</b> 0.875×</span><span class="k"><b>Colours</b> Workshop Orange, Blueprint Blue</span></span></button>
     </div>
   </section>
 
@@ -645,7 +668,7 @@
     document.querySelectorAll('[data-mode]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(h.classList.contains(b.getAttribute('data-mode'))));
     });
-    document.querySelectorAll('.surface .now').forEach(function (n) { n.hidden = n.parentNode.getAttribute('data-surface') !== surface; });
+    document.querySelectorAll('.surface .now').forEach(function (n) { n.hidden = n.closest('.surface').getAttribute('data-surface') !== surface; });
   }
 
   function setSurface(s) {
