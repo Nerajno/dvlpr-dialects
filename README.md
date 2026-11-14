@@ -19,6 +19,9 @@ Every surface (portfolio, learn, teach, build) uses the same token names and the
 
 ## Terms
 
+<details>
+<summary>Show</summary>
+
 The page, this README, `llms.txt` and the JSON-LD use one term per idea:
 
 | Idea | Use | Avoid |
@@ -31,7 +34,12 @@ The page, this README, `llms.txt` and the JSON-LD use one term per idea:
 
 `scripts/check-copy.mjs` reads the same list from `scripts/copy-terms.json`, so change both together.
 
+</details>
+
 ## Surfaces
+
+<details>
+<summary>Show</summary>
 
 | Surface | Persona | Font | Density | Action accent | Support accent |
 |---|---|---|---|---|---|
@@ -65,7 +73,12 @@ Each surface's support accent was picked with a colour-theory rule against its a
 | `teach` | Complement: Pink Chalk on a Chalkboard Teal board. |
 | `build` | Complement: Blueprint Blue against Workshop Orange. Chroma is capped at 0.09 to stay inside sRGB. |
 
+</details>
+
 ## Install
+
+<details open>
+<summary>Show</summary>
 
 The package is named `@nerajno/dialects` and installs from a tagged GitHub release:
 
@@ -75,7 +88,12 @@ npm i github:Nerajno/dvlpr-dialects#v0.2.0
 
 **Browser support:** the tokens use `oklch()` with `calc()` inside it, so they need a current evergreen browser. There's no fallback for older ones.
 
+</details>
+
 ## Use
+
+<details open>
+<summary>Show</summary>
 
 ### 1. Stylesheets
 
@@ -178,7 +196,12 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nerajno/dvlpr-dialects@v0.2.0/code.css">
 ```
 
+</details>
+
 ## Tokens
+
+<details>
+<summary>Show</summary>
 
 | Group | Tokens |
 |---|---|
@@ -261,14 +284,24 @@ A few vivid values sit just outside sRGB (build's dark `--accent`, for example),
 - `--border` is decorative only, at about 1.3:1.
 - In dark mode, `--accent-soft` doesn't hold body text (the best text token reaches about 3.8:1), so use it only as a fill there.
 
+</details>
+
 ## Rules of thumb
+
+<details>
+<summary>Show</summary>
 
 - **One action colour.** Links, buttons and focus rings use `--accent`. `--accent-2` is for supporting details: tags, highlights, code strings, a second chart series.
 - **Put `--accent-2` text on `--accent-2-soft`**, not on `--accent-soft`.
 - **Status needs more than colour.** The status hues sit 16–25° from the nearest surface accent (build's orange and danger are the closest pair), so a status is never shown by hue alone. Use the `.status` pill from `utilities.css`, which pairs each colour with a label and a marker shape, or add your own label or icon.
 - **Never hard-code a colour.** If a token is missing, add it to the token layer rather than to one site.
 
+</details>
+
 ## Add or change a surface
+
+<details>
+<summary>Show</summary>
 
 A surface is just a block of dials in `tokens.css`:
 
@@ -291,7 +324,12 @@ Then:
 3. Add the name to the `SURFACES` list in `theme-init.js` and to the style guide's switcher in `index.html`.
 4. Open the style guide in that surface, in both modes, and check every contrast badge still meets the numbers above. Keep the new hues at least 30° away from the other surfaces' accents and the status hues (22, 95, 145, 240).
 
+</details>
+
 ## Releasing
+
+<details>
+<summary>Show</summary>
 
 1. Change the CSS and check the style guide in all four surfaces, light and dark.
 2. Move the **Unreleased** entries in `CHANGELOG.md` under the new version.
@@ -324,8 +362,15 @@ When the page changes, update the `<time>` in the footer and `lastmod` in `sitem
 
 External links are checked too, but a broken one is only a warning, so a flaky site can't block a pull request. Add `-- --offline` to skip them. `npm test` runs the script's own tests. The **Check copy** GitHub Action runs both on pull requests that touch `index.html`, `llms.txt`, `README.md`, `sitemap.xml` or `scripts/`.
 
+</details>
+
 ## License
+
+<details>
+<summary>Show</summary>
 
 Dialects is **source-available** under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You can use, copy and change it for any non-commercial purpose: personal projects, learning, research, education, charities and government. Commercial use needs a separate license: email [nerando@developingdvlpr.com](mailto:nerando@developingdvlpr.com).
 
 Required Notice: Copyright 2026 Nerando Johnson (https://developingdvlpr.com)
+
+</details>
