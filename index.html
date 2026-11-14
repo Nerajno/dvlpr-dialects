@@ -9,8 +9,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F8FAFE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0D12" media="(prefers-color-scheme: dark)">
-<title>Dialects: an OKLCH design-token system with four surface dialects</title>
-<meta name="description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<title>Dialects: an OKLCH design-token layer with four surface dialects</title>
+<meta name="description" content="Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta name="author" content="Nerando Johnson">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://nerajno.github.io/dvlpr-dialects/">
@@ -20,7 +20,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dialects">
 <meta property="og:title" content="Dialects: one token layer, four dialects">
-<meta property="og:description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta property="og:description" content="Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta property="og:url" content="https://nerajno.github.io/dvlpr-dialects/">
 <meta property="og:image" content="https://nerajno.github.io/dvlpr-dialects/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dialects: one token layer, four dialects">
-<meta name="twitter:description" content="Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.">
+<meta name="twitter:description" content="Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.">
 <meta name="twitter:image" content="https://nerajno.github.io/dvlpr-dialects/og-image.png">
 <meta name="twitter:image:alt" content="Dialects: four surface accent colours in a grid beside the title One token layer, four dialects">
 <script type="application/ld+json">
@@ -41,7 +41,7 @@
    "@id": "https://nerajno.github.io/dvlpr-dialects/#website",
    "url": "https://nerajno.github.io/dvlpr-dialects/",
    "name": "Dialects",
-   "description": "Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
+   "description": "Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.",
    "inLanguage": "en",
    "publisher": {
     "@id": "https://developingdvlpr.com/#person"
@@ -63,7 +63,7 @@
    "@id": "https://nerajno.github.io/dvlpr-dialects/#code",
    "name": "Dialects",
    "alternateName": "@nerajno/dialects",
-   "description": "Dialects is a source-available OKLCH design-token system by Nerando Johnson: one token layer, four surface dialects, light and dark, with WCAG-checked contrast.",
+   "description": "Dialects is the source-available OKLCH design-token layer behind developingdvlpr.com, by Nerando Johnson: four surface dialects, light and dark, with WCAG-checked contrast.",
    "codeRepository": "https://github.com/Nerajno/dvlpr-dialects",
    "programmingLanguage": [
     "CSS",
@@ -86,55 +86,55 @@
      "name": "What is Dialects?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Dialects is a source-available design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours."
+      "text": "A design-token layer for a set of related sites. One layer of CSS custom properties that every site shares, with four surfaces that each change a few dial variables: font, density and two accent colours."
      }
     },
     {
      "@type": "Question",
-     "name": "What is a dialect in Dialects?",
+     "name": "What is a dialect?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "A dialect is how one surface speaks the shared tokens. The portfolio, learn, teach and build surfaces all use the same token names and classes, but each sets its own dials, so it gets its own font, density and accent colours."
+      "text": "How one surface speaks the shared tokens. Every surface uses the same token names and classes, but sets its own dials, so it gets its own font, density and colours."
      }
     },
     {
      "@type": "Question",
-     "name": "Why does Dialects use OKLCH instead of hex?",
+     "name": "Why OKLCH instead of hex?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "OKLCH describes colour as lightness, chroma and hue, and equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools like Figma, but OKLCH is the source of truth."
+      "text": "Because equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools; OKLCH is the source of truth."
      }
     },
     {
      "@type": "Question",
-     "name": "What are the Dialects accent colours?",
+     "name": "What are the accent colours?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Each surface has an action accent and a support accent: portfolio uses Quiet Violet and Signal Indigo, learn uses Notebook Ochre and Highlighter Plum, teach uses Chalkboard Teal and Pink Chalk, and build uses Workshop Orange and Blueprint Blue. Status colours are Go Green, Caution Yellow, Stop Red and Notice Blue."
+      "text": "Each surface has an action accent for links and buttons, and a support accent for tags and highlights. Portfolio uses Quiet Violet and Signal Indigo; learn, Notebook Ochre and Highlighter Plum; teach, Chalkboard Teal and Pink Chalk; build, Workshop Orange and Blueprint Blue."
      }
     },
     {
      "@type": "Question",
-     "name": "Is Dialects accessible?",
+     "name": "Is it accessible?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. All text tokens and the main accent reach at least 4.5:1 contrast against every background, control edges reach at least 3:1, and every status colour is paired with a label and a marker shape so it never relies on colour alone."
+      "text": "Yes. Text tokens and the action accent reach at least 4.5:1 on every background, and control edges reach 3:1. Every status colour carries a label and a marker shape, so colour is never the only signal."
      }
     },
     {
      "@type": "Question",
-     "name": "How do I install Dialects?",
+     "name": "How do I install it?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Install it from a tagged GitHub release with npm i github:Nerajno/dvlpr-dialects#v0.2.0, import tokens.css and utilities.css, and inline theme-init.js in the page head to set the surface and light or dark mode before first paint. A Tailwind CSS preset is included."
+      "text": "Run npm i github:Nerajno/dvlpr-dialects#v0.2.0. Import tokens.css and utilities.css, then inline theme-init.js in your page head to set the surface and mode before first paint. A Tailwind preset is included."
      }
     },
     {
      "@type": "Question",
-     "name": "Can I use Dialects in a commercial project?",
+     "name": "Can I use it commercially?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Not without permission. Dialects is licensed under the PolyForm Noncommercial License 1.0.0, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email nerando@developingdvlpr.com for a separate license."
+      "text": "Not without permission. Dialects is under the PolyForm Noncommercial License 1.0.0, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email nerando@developingdvlpr.com."
      }
     }
    ]
@@ -169,7 +169,7 @@
 <link rel="stylesheet" href="code.css">
 <style>
   /* Layout: a dial strip pinned at the top, then one long specimen sheet in rem,
-     so the whole page breathes with --dial-type-scale. Every colour is a spine token. */
+     so the whole page breathes with --dial-type-scale. Every colour is a token-layer token. */
   html { scroll-padding-top: 5rem; }
   body {
     margin: 0;
@@ -210,6 +210,8 @@
   .eyebrow { font: 500 .875rem/1.4 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin: 0; }
   .hero h1 { font-family: var(--font-display); font-size: clamp(2.75rem, 7vw, 4.75rem); line-height: .95; letter-spacing: -.025em; font-weight: 700; }
   .lede { max-width: 38rem; font-size: 1.125rem; color: var(--text-soft); margin: 0; }
+  .switch-hint { margin: 0; font-size: .9375rem; color: var(--text-muted); }
+  .start-note { margin: 0; max-width: 40rem; color: var(--text-soft); }
   .readout { display: flex; flex-wrap: wrap; gap: .5rem; }
   .dial-badge { font: 400 .75rem/1.5 var(--font-mono); color: var(--text-soft); background: var(--bg-alt);
     border: 1px solid var(--border); border-radius: 6px; padding: .25rem .5rem; }
@@ -232,7 +234,11 @@
   .surface .bar { height: 2.5rem; border-radius: var(--radius-md); }
   .surface .sname { font-size: 1.125rem; font-weight: 700; color: var(--text-strong); }
   .surface .k { font: 400 .75rem/1.5 var(--font-mono); color: var(--text-muted); }
-  .surface .now { font: 700 .6875rem/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-strong); }
+  .surface .sname-row { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+  .surface .facts { display: grid; gap: .1rem; }
+  .surface .k b { color: var(--text-soft); font-weight: 500; margin-right: .35em; }
+  .surface .now { font: 700 .6875rem/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-strong);
+    border: 1px solid var(--border-strong); border-radius: 999px; padding: .2rem .45rem; }
 
   /* Colour */
   .groups { display: grid; gap: 1.75rem; }
@@ -245,6 +251,12 @@
   .sw .val { font: 400 .6875rem/1.4 var(--font-mono); color: var(--text-muted); overflow-wrap: anywhere; }
   .sw .val.hex { color: var(--text-soft); font-weight: 500; }
   .sw .use { font-size: .8125rem; color: var(--text-soft); line-height: 1.45; }
+  .names-wrap { overflow-x: auto; }
+  .names { width: 100%; border-collapse: collapse; margin-top: .75rem; font-size: .9375rem; }
+  .names caption { text-align: left; font: 500 .75rem/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); padding-bottom: .5rem; }
+  .names th, .names td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--border); }
+  .names thead th { color: var(--text-strong); }
+  .names tbody th { font-weight: 600; color: var(--text-strong); white-space: nowrap; }
   .ratio { font: 700 .6875rem/1 var(--font-mono); padding: .25rem .4rem; border-radius: 4px; background: var(--bg-card); color: var(--text-strong); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
 
   /* Type */
@@ -314,14 +326,11 @@
   .qa > summary h3 { display: inline; font-size: 1.0625rem; font-family: var(--font-body); }
   .qa > summary:hover h3 { color: var(--accent); }
   .qa > p { margin: 0 0 1rem; color: var(--text-body); }
-  .names { width: 100%; border-collapse: collapse; margin-top: .75rem; font-size: .9375rem; }
-  .names caption { text-align: left; font: 500 .75rem/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); padding-bottom: .5rem; }
-  .names th, .names td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--border); }
-  .names thead th { color: var(--text-strong); }
-  .names tbody th { font: 500 .875rem var(--font-mono); color: var(--text-strong); }
 
   footer { border-top: 1px solid var(--border); padding-block: 2rem 3rem; color: var(--text-muted); font-size: .875rem; }
-  footer pre { margin: .75rem 0 0; overflow-x: auto; background: var(--bg-alt); color: var(--text-strong); border-radius: var(--radius-md); padding: .75rem 1rem; font-size: .875rem; }
+  .colophon { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; margin: 0; }
+  .colophon dt { color: var(--text-soft); font-weight: 600; }
+  .colophon dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -346,38 +355,62 @@
 
 <main class="wrap" id="top">
   <div class="hero">
-    <p class="eyebrow">developingdvlpr.com · token spine</p>
+    <p class="eyebrow">design tokens · developingdvlpr.com</p>
     <h1>One token layer,<br>four dialects.</h1>
-    <p class="lede"><strong>Dialects</strong> is a source-available OKLCH design-token system by <a href="https://developingdvlpr.com">Nerando Johnson</a> for developingdvlpr.com. Every surface uses the same token names and the same classes. Five dials change underneath: font, density, and the accent's hue, saturation and lightness. Two more set a second accent for supporting details. Switch surface and mode at the top; everything on this page follows.</p>
+    <p class="lede"><strong>Dialects</strong> is the design-token layer behind my projects ( including developingdvlpr.com). One set of token names and classes; four surfaces that each speak them a little differently.</p>
+    <p class="lede">Each surface sets a handful of dials: the font, how dense the type sits, and two accent colours. Everything else — backgrounds, borders, shadows — is worked out from those. Dark mode uses the same dials with the lightness flipped.</p>
+    <p class="lede">This approach ensures consistency across all my projects while allowing each to have its own unique character. This was also a solution to the problem of maintaining a consistent look and feel across multiple projects and as result of looking into how <a href="https://www.florin-pop.com/projects/" target="_blank" rel="noopener noreferrer">@Florin Pop</a> used his purple design across his various projects.</p>
+    <p class="switch-hint">Pick a surface and a mode. The whole page follows.</p>
     <div class="readout" id="readout" aria-live="polite"></div>
   </div>
 
   <section class="block" id="surfaces">
     <div class="block-head">
       <h2>Surfaces</h2>
-      <p>Each part of the site speaks its own dialect. Pick one to restyle the page.</p>
+      <p>Each part of the site speaks its own dialect. Pick one and the page re-skins.</p>
     </div>
     <div class="surfaces">
-      <button type="button" class="surface" data-surface="portfolio"><span class="bar" style="background:var(--dial-portfolio)"></span><span class="sname" style="font-family:var(--font-sans)">portfolio</span><span class="k">the front door · sans · 1.125× · Quiet Violet + Signal Indigo</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="learn"><span class="bar" style="background:var(--dial-learn)"></span><span class="sname" style="font-family:var(--font-mono)">learn</span><span class="k">the notebook · mono · 0.875× · Notebook Ochre + Highlighter Plum</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="teach"><span class="bar" style="background:var(--dial-teach)"></span><span class="sname" style="font-family:var(--font-display)">teach</span><span class="k">the lecture · sans + Fraunces · 1× · Chalkboard Teal + Pink Chalk</span><span class="now">Current</span></button>
-      <button type="button" class="surface" data-surface="build"><span class="bar" style="background:var(--dial-build)"></span><span class="sname" style="font-family:var(--font-mono)">build</span><span class="k">the workbench · mono · 0.875× · Workshop Orange + Blueprint Blue</span><span class="now">Current</span></button>
+      <button type="button" class="surface" data-surface="portfolio"><span class="bar" style="background:var(--dial-portfolio)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-sans)">portfolio</span><span class="now" hidden>Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the front door</span><span class="k"><b>Font</b> Plus Jakarta Sans</span><span class="k"><b>Density</b> 1.125×</span><span class="k"><b>Colours</b> Quiet Violet, Signal Indigo</span></span></button>
+      <button type="button" class="surface" data-surface="learn"><span class="bar" style="background:var(--dial-learn)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-mono)">learn</span><span class="now" hidden>Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the notebook</span><span class="k"><b>Font</b> JetBrains Mono</span><span class="k"><b>Density</b> 0.875×</span><span class="k"><b>Colours</b> Notebook Ochre, Highlighter Plum</span></span></button>
+      <button type="button" class="surface" data-surface="teach"><span class="bar" style="background:var(--dial-teach)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-display)">teach</span><span class="now" hidden>Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the lecture</span><span class="k"><b>Font</b> Plus Jakarta Sans, Fraunces headings</span><span class="k"><b>Density</b> 1×</span><span class="k"><b>Colours</b> Chalkboard Teal, Pink Chalk</span></span></button>
+      <button type="button" class="surface" data-surface="build"><span class="bar" style="background:var(--dial-build)"></span><span class="sname-row"><span class="sname" style="font-family:var(--font-mono)">build</span><span class="now" hidden>Current</span></span><span class="facts"><span class="k"><b>Feels like</b> the workbench</span><span class="k"><b>Font</b> JetBrains Mono</span><span class="k"><b>Density</b> 0.875×</span><span class="k"><b>Colours</b> Workshop Orange, Blueprint Blue</span></span></button>
     </div>
   </section>
 
   <section class="block" id="colour">
     <div class="block-head">
       <h2>Colour</h2>
-      <p>Values are read live from the page, so they always match the surface and mode you're viewing. Each swatch shows its <code>oklch()</code> source value and the nearest sRGB hex for design tools (≈ means the colour is outside sRGB and the hex is clipped). The corner figure is the contrast ratio against <code>--bg</code>.</p>
+      <p>Every colour here is worked out from the current surface's dials. Each swatch shows the OKLCH value the CSS uses, the nearest hex for design tools, and a contrast badge against the page background.</p>
+      <p>≈ means the colour sits outside sRGB, so the hex is the closest match.</p>
     </div>
     <div class="groups" id="groups"></div>
+    <div class="names-wrap">
+      <table class="names">
+        <caption>Named colours</caption>
+        <thead><tr><th scope="col">Name</th><th scope="col">Token</th><th scope="col">Surface</th><th scope="col">Job</th><th scope="col">Light</th><th scope="col">Dark</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Quiet Violet</th><td><code>--accent</code></td><td>portfolio</td><td>action</td><td><code>#596378</code></td><td><code>#9AABCE</code></td></tr>
+          <tr><th scope="row">Signal Indigo</th><td><code>--accent-2</code></td><td>portfolio</td><td>support</td><td><code>#3E5FAD</code></td><td><code>#86A9F7</code></td></tr>
+          <tr><th scope="row">Notebook Ochre</th><td><code>--accent</code></td><td>learn</td><td>action</td><td><code>#805307</code></td><td><code>#D39747</code></td></tr>
+          <tr><th scope="row">Highlighter Plum</th><td><code>--accent-2</code></td><td>learn</td><td>support</td><td><code>#7A4D94</code></td><td><code>#C296DD</code></td></tr>
+          <tr><th scope="row">Chalkboard Teal</th><td><code>--accent</code></td><td>teach</td><td>action</td><td><code>#166E54</code></td><td><code>#54BB97</code></td></tr>
+          <tr><th scope="row">Pink Chalk</th><td><code>--accent-2</code></td><td>teach</td><td>support</td><td><code>#973F6E</code></td><td><code>#E38AB5</code></td></tr>
+          <tr><th scope="row">Workshop Orange</th><td><code>--accent</code></td><td>build</td><td>action</td><td><code>#AA3606</code></td><td><code>#FF7B4F</code></td></tr>
+          <tr><th scope="row">Blueprint Blue</th><td><code>--accent-2</code></td><td>build</td><td>support</td><td><code>#116D8A</code></td><td><code>#71B6D1</code></td></tr>
+          <tr><th scope="row">Go Green</th><td><code>--success</code></td><td>all</td><td>ok</td><td><code>#409D48</code></td><td><code>#67BB6B</code></td></tr>
+          <tr><th scope="row">Caution Yellow</th><td><code>--warning</code></td><td>all</td><td>warn</td><td><code>#CDAF33</code></td><td><code>#DEC358</code></td></tr>
+          <tr><th scope="row">Stop Red</th><td><code>--danger</code></td><td>all</td><td>error</td><td><code>#C5353E</code></td><td><code>#EF6567</code></td></tr>
+          <tr><th scope="row">Notice Blue</th><td><code>--info</code></td><td>all</td><td>info</td><td><code>#338FC7</code></td><td><code>#55AEE8</code></td></tr>
+        </tbody>
+      </table>
+    </div>
     <noscript><p>The swatches are built with JavaScript. Every token value is also listed in the <a href="https://github.com/Nerajno/dvlpr-dialects#tokens">README</a>.</p></noscript>
   </section>
 
   <section class="block" id="type">
     <div class="block-head">
       <h2>Type</h2>
-      <p>Body and headings come from <code>--font-body</code> and <code>--font-heading</code>, which each surface resolves. Teach sets its headings in Fraunces.</p>
+      <p>Body and heading faces come from <code>--font-body</code> and <code>--font-heading</code>. Each surface resolves them: learn and build run mono throughout, teach sets its headings in Fraunces.</p>
     </div>
     <div class="faces">
       <div class="face"><span class="big" style="font-family:var(--font-sans)">Aa</span><span class="role">--font-sans · Plus Jakarta Sans<br>body on portfolio and teach</span></div>
@@ -388,9 +421,9 @@
       <div class="post-inner">
         <p class="eyebrow">Series · In The Middle</p>
         <h3 class="post-title">Progress over perfection</h3>
-        <div class="meta"><span>Oct 31, 2026</span><span>•</span><span>6 min read</span><span>•</span><span>412 views</span></div>
+        <div class="meta"><span>Oct 31, 2026</span><span>•</span><span>6 min read</span></div>
         <div class="prose">
-          <p>I used to rebuild the design system every time a site changed. Now there's one spine, and each surface only turns its dials. The blog runs on <code>teach</code>, so links like <a href="#type">this one</a> pick up the chalkboard teal.</p>
+          <p>I used to rebuild the design system every time a site changed. Now there's one token layer, and each surface only turns its dials. The blog runs on <code>teach</code>, so links like <a href="#type">this one</a> pick up Chalkboard Teal.</p>
           <h4>What I learnt shipping it</h4>
           <p>Contrast is a number you can check. Every text token clears 4.5:1 on every background, in every surface, light and dark.</p>
           <h5>The tradeoff</h5>
@@ -403,21 +436,20 @@
   <section class="block" id="components">
     <div class="block-head">
       <h2>Components</h2>
-      <p>The same markup on every surface. Only the tokens underneath change.</p>
+      <p>Same markup on every surface. Only the tokens underneath change.</p>
     </div>
     <div class="comps">
       <div class="comp">
         <p class="label">Buttons</p>
-        <div class="row"><button type="button" class="btn btn-primary">Primary action</button><button type="button" class="btn btn-secondary">Read the next post</button></div>
+        <div class="row"><button type="button" class="btn btn-primary">Save changes</button><button type="button" class="btn btn-secondary">Read the next post</button></div>
       </div>
       <div class="comp">
-        <p class="label">Status pills · shape + colour</p>
-        <div class="row"><span class="status status-ok">ok</span><span class="status status-warn">warn</span><span class="status status-err">err</span><span class="status status-info">info</span></div>
-        <div class="row"><span class="dial-badge">font: <b>sans</b> · density: <b>1×</b> · hue: <b>168</b></span></div>
+        <p class="label">Status pills</p>
+        <div class="row"><span class="status status-ok">ok</span><span class="status status-warn">warn</span><span class="status status-err">error</span><span class="status status-info">info</span></div>
       </div>
       <div class="comp">
-        <p class="label">Second accent · accent-2</p>
-        <p style="margin:0;font-size:.9375rem;color:var(--text-body)">A <a href="#components">link</a> stays in the main accent. Supporting details, like a <mark class="hl">highlighted phrase</mark>, use <code style="white-space:nowrap">--accent-2</code>.</p>
+        <p class="label">Support accent (<code>--accent-2</code>)</p>
+        <p style="margin:0;font-size:.9375rem;color:var(--text-body)">A <a href="#components">link</a> stays in the action accent. Supporting details, like a <mark class="hl">highlighted phrase</mark>, use <code style="white-space:nowrap">--accent-2</code>.</p>
         <div class="row"><span class="tag2">#vue</span><span class="tag2">#tokens</span><span class="tag2 outline">draft</span></div>
       </div>
       <div class="comp">
@@ -429,7 +461,7 @@
         </div>
       </div>
       <div class="comp">
-        <p class="label">Card · shadow-card</p>
+        <p class="label">Card (<code>--shadow-md</code>)</p>
         <div class="card-demo"><h4>A Clearer Vue</h4><p>A Vue 3 article series with companion projects.</p><a href="#components">Read the series</a></div>
       </div>
       <div class="comp">
@@ -447,7 +479,8 @@
   <section class="block" id="code">
     <div class="block-head">
       <h2>Code</h2>
-      <p>Shiki's css-variables theme, coloured by <code>code.css</code>. Keywords take this surface's accent and strings take its <code>--accent-2</code>; functions and constants take other surfaces' accents.</p>
+      <p>Code blocks read the same tokens. Keywords take the action accent and strings take the support accent; functions and constants borrow other surfaces' colours, so no two roles share one.</p>
+      <p>Set Shiki to the <code>css-variables</code> theme and import <code>code.css</code>.</p>
     </div>
     <div class="codes">
       <div class="legend">
@@ -475,7 +508,7 @@
   <section class="block" id="shape">
     <div class="block-head">
       <h2>Shape, depth and space</h2>
-      <p>Radii and timing are the same on every surface. Shadows take the surface hue. Spacing is in rem, so it follows the density dial.</p>
+      <p>Radii and shadow sizes are the same on every surface. Shadows pick up the surface hue, and spacing is in rem, so it follows the density dial.</p>
     </div>
     <div class="shapes">
       <div class="shape"><span class="box" style="border-radius:var(--radius-sm)"></span><span class="label">radius-sm · 4px</span></div>
@@ -491,6 +524,21 @@
     <div class="spaces" id="spaces"></div>
   </section>
 
+    <section class="block" id="start">
+    <div class="block-head">
+      <h2>Get started</h2>
+      <p>Install from a tagged release, import the CSS, and set the surface before the page paints.</p>
+    </div>
+    <div class="codes">
+<pre><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></pre>
+<pre><code>@import "@nerajno/dialects/fonts.css";
+@import "@nerajno/dialects/tokens.css";
+@import "@nerajno/dialects/utilities.css";
+@import "@nerajno/dialects/code.css";</code></pre>
+    </div>
+    <p class="start-note">Then inline <code>theme-init.js</code> in your <code>&lt;head&gt;</code> with <code>data-surface</code> set. Full setup, including the Tailwind preset, is in the <a href="https://github.com/Nerajno/dvlpr-dialects#use">README</a>.</p>
+  </section>
+
   <section class="block" id="faq" aria-labelledby="faq-title">
     <div class="block-head">
       <h2 id="faq-title">Questions</h2>
@@ -499,50 +547,47 @@
     <div class="faq">
       <details class="qa" open>
         <summary><h3>What is Dialects?</h3></summary>
-        <p>Dialects is a source-available design-token system by Nerando Johnson for developingdvlpr.com. It is one layer of CSS custom properties (tokens) that every site shares, with four surface dialects that change only a few dial variables: font, density and accent colours.</p>
+        <p>A design-token layer for a set of related sites. One layer of CSS custom properties that every site shares, with four surfaces that each change a few dial variables: font, density and two accent colours.</p>
       </details>
       <details class="qa">
-        <summary><h3>What is a dialect in Dialects?</h3></summary>
-        <p>A dialect is how one surface speaks the shared tokens. The portfolio, learn, teach and build surfaces all use the same token names and classes, but each sets its own dials, so it gets its own font, density and accent colours.</p>
+        <summary><h3>What is a dialect?</h3></summary>
+        <p>How one surface speaks the shared tokens. Every surface uses the same token names and classes, but sets its own dials, so it gets its own font, density and colours.</p>
       </details>
       <details class="qa">
-        <summary><h3>Why does Dialects use OKLCH instead of hex?</h3></summary>
-        <p>OKLCH describes colour as lightness, chroma and hue, and equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools like Figma, but OKLCH is the source of truth.</p>
+        <summary><h3>Why OKLCH instead of hex?</h3></summary>
+        <p>Because equal steps look equal to the eye. That lets every colour be calculated from a few dials and checked for contrast. Hex values are listed for design tools; OKLCH is the source of truth.</p>
       </details>
       <details class="qa">
-        <summary><h3>What are the Dialects accent colours?</h3></summary>
-        <p>Each surface has an action accent and a support accent: portfolio uses Quiet Violet and Signal Indigo, learn uses Notebook Ochre and Highlighter Plum, teach uses Chalkboard Teal and Pink Chalk, and build uses Workshop Orange and Blueprint Blue. Status colours are Go Green, Caution Yellow, Stop Red and Notice Blue.</p>
+        <summary><h3>What are the accent colours?</h3></summary>
+        <p>Each surface has an action accent for links and buttons, and a support accent for tags and highlights. Portfolio uses Quiet Violet and Signal Indigo; learn, Notebook Ochre and Highlighter Plum; teach, Chalkboard Teal and Pink Chalk; build, Workshop Orange and Blueprint Blue.</p>
       </details>
       <details class="qa">
-        <summary><h3>Is Dialects accessible?</h3></summary>
-        <p>Yes. All text tokens and the main accent reach at least 4.5:1 contrast against every background, control edges reach at least 3:1, and every status colour is paired with a label and a marker shape so it never relies on colour alone.</p>
+        <summary><h3>Is it accessible?</h3></summary>
+        <p>Yes. Text tokens and the action accent reach at least 4.5:1 on every background, and control edges reach 3:1. Every status colour carries a label and a marker shape, so colour is never the only signal.</p>
       </details>
       <details class="qa">
-        <summary><h3>How do I install Dialects?</h3></summary>
-        <p>Install it from a tagged GitHub release with npm i github:Nerajno/dvlpr-dialects#v0.2.0, import tokens.css and utilities.css, and inline theme-init.js in the page head to set the surface and light or dark mode before first paint. A Tailwind CSS preset is included.</p>
+        <summary><h3>How do I install it?</h3></summary>
+        <p>Run <code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code>. Import <code>tokens.css</code> and <code>utilities.css</code>, then inline <code>theme-init.js</code> in your page head to set the surface and mode before first paint. A Tailwind preset is included.</p>
       </details>
       <details class="qa">
-        <summary><h3>Can I use Dialects in a commercial project?</h3></summary>
-        <p>Not without permission. Dialects is licensed under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm Noncommercial License 1.0.0</a>, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a> for a separate license.</p>
+        <summary><h3>Can I use it commercially?</h3></summary>
+        <p>Not without permission. Dialects is under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm Noncommercial License 1.0.0</a>, so it is free for personal projects, learning, research, education, charities and government. For commercial use, email <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a>.</p>
       </details>
-      <table class="names">
-        <caption>Named colours, light mode hex</caption>
-        <thead><tr><th scope="col">Surface</th><th scope="col">Action accent</th><th scope="col">Support accent</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">portfolio</th><td>Quiet Violet <code>#596378</code></td><td>Signal Indigo <code>#3E5FAD</code></td></tr>
-          <tr><th scope="row">learn</th><td>Notebook Ochre <code>#805307</code></td><td>Highlighter Plum <code>#7A4D94</code></td></tr>
-          <tr><th scope="row">teach</th><td>Chalkboard Teal <code>#166E54</code></td><td>Pink Chalk <code>#973F6E</code></td></tr>
-          <tr><th scope="row">build</th><td>Workshop Orange <code>#AA3606</code></td><td>Blueprint Blue <code>#116D8A</code></td></tr>
-        </tbody>
-      </table>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>Dialects v0.2.0 · the token spine for developingdvlpr.com, by <a href="https://developingdvlpr.com" rel="author">Nerando Johnson</a> (<a href="https://github.com/Nerajno">@Nerajno</a>). Last updated <time datetime="2026-11-12">November 12, 2026</time>. Source and docs on <a href="https://github.com/Nerajno/dvlpr-dialects">GitHub</a>. Free for non-commercial use under the <a href="https://polyformproject.org/licenses/noncommercial/1.0.0" rel="license">PolyForm Noncommercial License 1.0.0</a>. Commercial licensing: <a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a>. Install from a tagged release:</p>
-    <pre><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></pre>
+    <dl class="colophon">
+      <dt>Version</dt><dd>v0.2.0</dd>
+      <dt>By</dt><dd><a href="https://developingdvlpr.com" rel="author">Nerando Johnson</a> (<a href="https://github.com/Nerajno">@Nerajno</a>)</dd>
+      <dt>Updated</dt><dd><time datetime="2026-11-13">13 November 2026</time></dd>
+      <dt>Source</dt><dd><a href="https://github.com/Nerajno/dvlpr-dialects">github.com/Nerajno/dvlpr-dialects</a></dd>
+      <dt>License</dt><dd><a href="https://polyformproject.org/licenses/noncommercial/1.0.0" rel="license">PolyForm Noncommercial 1.0.0</a></dd>
+      <dt>Commercial use</dt><dd><a href="mailto:nerando@developingdvlpr.com">nerando@developingdvlpr.com</a></dd>
+      <dt>Install</dt><dd><code>npm i github:Nerajno/dvlpr-dialects#v0.2.0</code></dd>
+    </dl>
   </div>
 </footer>
 
@@ -551,10 +596,10 @@
   var h = document.documentElement;
   var GROUPS = [
     ['Surfaces', [['bg','Page background'],['bg-alt','Bands, inline code, code blocks'],['bg-card','Cards; label on accent buttons'],['bg-elevated','Menus and popovers']]],
-    ['Text', [['text-strong','Headings'],['text-body','Running copy'],['text-soft','Secondary copy'],['text-muted','Dates, read time, views']]],
+    ['Text', [['text-strong','Headings'],['text-body','Running copy'],['text-soft','Secondary copy'],['text-muted','Dates and read time']]],
     ['Accent', [['accent','Links, primary button, focus ring'],['accent-hover','Hover for links and fills'],['accent-soft','Tinted fill (decorative in dark)'],['accent-2','Tags, highlights, code strings'],['accent-2-soft','Fill behind --accent-2 text']]],
     ['Borders', [['border','Decorative hairline'],['border-strong','Control edges, ≥3:1']]],
-    ['Status', [['success','ok · circle marker'],['warning','warn · triangle marker'],['danger','err · square marker'],['info','info · diamond marker']]],
+    ['Status', [['success','ok · circle marker'],['warning','warn · triangle marker'],['danger','error · square marker'],['info','info · diamond marker']]],
     ['Cross-surface', [['dial-portfolio','Portfolio accent'],['dial-learn','Learn accent'],['dial-teach','Teach accent'],['dial-build','Build accent']]]
   ];
   var TEXTLIKE = { 'text-strong':1,'text-body':1,'text-soft':1,'text-muted':1,'accent':1,'accent-hover':1,'accent-2':1,'border-strong':1,'border':1,'dial-portfolio':1,'dial-learn':1,'dial-teach':1,'dial-build':1 };
@@ -636,7 +681,7 @@
       '<span class="dial-badge">font: <b>' + d[0] + '</b></span>' +
       '<span class="dial-badge">density: <b>' + d[1] + '</b></span>' +
       '<span class="dial-badge">hue: <b>' + d[2] + '</b> · chroma: <b>' + d[3] + '</b></span>' +
-      '<span class="dial-badge">accent-2 hue: <b>' + d[4] + '</b> · chroma: <b>' + d[5] + '</b></span>' +
+      '<span class="dial-badge">support accent hue: <b>' + d[4] + '</b> · chroma: <b>' + d[5] + '</b></span>' +
       '<span class="dial-badge">colours: <b>' + NAMES[surface][0] + '</b> + <b>' + NAMES[surface][1] + '</b></span>';
     document.querySelectorAll('[data-cname]').forEach(function (el) { var n = colourName(el.getAttribute('data-cname'), surface); el.textContent = n; el.hidden = !n; });
     document.querySelectorAll('[data-surface]').forEach(function (b) {
@@ -645,7 +690,7 @@
     document.querySelectorAll('[data-mode]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(h.classList.contains(b.getAttribute('data-mode'))));
     });
-    document.querySelectorAll('.surface .now').forEach(function (n) { n.hidden = n.parentNode.getAttribute('data-surface') !== surface; });
+    document.querySelectorAll('.surface .now').forEach(function (n) { n.hidden = n.closest('.surface').getAttribute('data-surface') !== surface; });
   }
 
   function setSurface(s) {

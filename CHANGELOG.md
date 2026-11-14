@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Copy pass on the style guide (#5): new hero and a Get started block, labelled surface cards, rewritten section intros, shorter FAQ answers with matching JSON-LD, and a footer split into labelled lines. One term per idea: token layer, action accent, support accent.
+- The named-colour table moved into the Colour section, with status colours and dark-mode hex.
+- The status pill demo now reads "error". The `.status-err` class is unchanged.
+- New `scripts/check-copy.mjs` (`npm run check:copy`) and a **Check copy** GitHub Action that guard the page copy, FAQ JSON-LD, terms, dates and links.
+
 ## v0.2.0 (2026-11-12)
 
 Upgrading from v0.1.0: change `#v0.1.0` to `#v0.2.0` in your install string. No tokens were renamed or removed. The status colours shift slightly, and Dialects is now licensed under PolyForm Noncommercial 1.0.0.

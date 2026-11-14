@@ -1,11 +1,12 @@
 # Dialects
 
-The token spine behind developingdvlpr.com: **one token layer, four dialects.**
+The design-token layer behind developingdvlpr.com: **one token layer, four dialects.**
 
 Every surface (portfolio, learn, teach, build) uses the same token names and the same classes. A surface looks different only because a handful of `--dial-*` variables change underneath it: the font, the density, and the accent colours. Light and dark mode reuse the same dials with the lightness flipped.
 
 **See it:** the style guide shows every token, type style and component on all four surfaces, in light and dark, with live contrast ratios: **https://nerajno.github.io/dvlpr-dialects/** (built from `index.html`).
 
+- [Terms](#terms)
 - [Surfaces](#surfaces)
 - [Install](#install)
 - [Use](#use)
@@ -16,9 +17,23 @@ Every surface (portfolio, learn, teach, build) uses the same token names and the
 - [Releasing](#releasing)
 - [License](#license)
 
+## Terms
+
+The page, this README, `llms.txt` and the JSON-LD use one term per idea:
+
+| Idea | Use | Avoid |
+|---|---|---|
+| The shared token set | token layer | `token spine`, `design-token system`, `design token system` |
+| `--accent` | action accent | `main accent` |
+| `--accent-2` | support accent | `second accent` |
+| Status pill labels | ok / warn / error / info | — |
+| Colour names | Title Case, e.g. Chalkboard Teal | — |
+
+`scripts/check-copy.mjs` reads the same list from `scripts/copy-terms.json`, so change both together.
+
 ## Surfaces
 
-| Surface | Persona | Font | Density | Accent | Second accent |
+| Surface | Persona | Font | Density | Action accent | Support accent |
 |---|---|---|---|---|---|
 | `portfolio` (default) | the front door | Plus Jakarta Sans | 1.125× | Quiet Violet (hue 265) | Signal Indigo (hue 265) |
 | `learn` | the notebook | JetBrains Mono | 0.875× | Notebook Ochre (hue 72) | Highlighter Plum (hue 312) |
@@ -39,13 +54,13 @@ Each surface sets these on `<html data-surface="…">`. Everything else in `toke
 | `--dial-accent2-hue` | Hue of `--accent-2`. |
 | `--dial-accent2-chroma` | How saturated `--accent-2` is. |
 
-### Second accent
+### Support accent
 
-Each surface's second accent was picked with a colour-theory rule against its main accent:
+Each surface's support accent was picked with a colour-theory rule against its action accent:
 
 | Surface | Rule |
 |---|---|
-| `portfolio` | Monochrome: same hue, more colour. Portfolio's main accent is near-gray, so the second one is where its colour comes from. |
+| `portfolio` | Monochrome: same hue, more colour. Portfolio's action accent is near-gray, so the support accent is where its colour comes from. |
 | `learn` | Triadic: Highlighter Plum on a Notebook Ochre page. |
 | `teach` | Complement: Pink Chalk on a Chalkboard Teal board. |
 | `build` | Complement: Blueprint Blue against Workshop Orange. Chroma is capped at 0.09 to stay inside sRGB. |
@@ -68,7 +83,7 @@ Import once per site, in this order:
 
 ```css
 @import "@nerajno/dialects/fonts.css";      /* Jakarta, Fraunces, JetBrains Mono (self-hosted) */
-@import "@nerajno/dialects/tokens.css";     /* the spine */
+@import "@nerajno/dialects/tokens.css";     /* the token layer */
 @import "@nerajno/dialects/utilities.css";  /* skip if you use the Tailwind preset */
 @import "@nerajno/dialects/code.css";       /* optional: syntax colours */
 ```
@@ -171,7 +186,7 @@ Link the files from jsDelivr at a pinned tag, load the fonts from Google Fonts (
 | Text | `--text-strong` `--text-body` `--text-soft` `--text-muted` |
 | Borders | `--border` (decorative hairline) · `--border-strong` (control edges, ≥3:1) |
 | Accent | `--accent` `--accent-hover` `--accent-soft` `--focus` |
-| Second accent | `--accent-2` `--accent-2-soft` |
+| Support accent | `--accent-2` `--accent-2-soft` |
 | Cross-surface | `--dial-portfolio` `--dial-learn` `--dial-teach` `--dial-build` |
 | Status | `--success` `--warning` `--danger` `--info`, each with a `-soft` version · `--on-success` `--on-warning` `--on-danger` `--on-info` (text on a solid status fill) |
 | Fonts | `--font-body` `--font-heading` (resolved per surface) · `--font-sans` `--font-display` `--font-mono` |
@@ -183,7 +198,7 @@ The cross-surface tokens are each surface's accent, pinned so any page can point
 
 ### Colour names
 
-Every colour that carries meaning has a human name, so you can say "use Pink Chalk for the tag" instead of "the teach surface's second accent". Backgrounds, text and borders keep their role names (`--bg`, `--text-body`), because their tint changes with the surface.
+Every colour that carries meaning has a human name, so you can say "use Pink Chalk for the tag" instead of "the teach surface's support accent". Backgrounds, text and borders keep their role names (`--bg`, `--text-body`), because their tint changes with the surface.
 
 | Name | Token | Where | Job | Light | Dark |
 |---|---|---|---|---|---|
@@ -251,7 +266,7 @@ A few vivid values sit just outside sRGB (build's dark `--accent`, for example),
 - **One action colour.** Links, buttons and focus rings use `--accent`. `--accent-2` is for supporting details: tags, highlights, code strings, a second chart series.
 - **Put `--accent-2` text on `--accent-2-soft`**, not on `--accent-soft`.
 - **Status needs more than colour.** The status hues sit 16–25° from the nearest surface accent (build's orange and danger are the closest pair), so a status is never shown by hue alone. Use the `.status` pill from `utilities.css`, which pairs each colour with a label and a marker shape, or add your own label or icon.
-- **Never hard-code a colour.** If a token is missing, add it to the spine rather than to one site.
+- **Never hard-code a colour.** If a token is missing, add it to the token layer rather than to one site.
 
 ## Add or change a surface
 
@@ -295,6 +310,19 @@ The style guide is set up to be found and quoted by search engines and AI answer
 - `sitemap.xml`: submit it in Google Search Console and Bing Webmaster Tools.
 
 When the page changes, update the `<time>` in the footer and `lastmod` in `sitemap.xml`. Re-render `og-image.png` if the accents change.
+
+#### Copy check
+
+`npm run check:copy` runs `scripts/check-copy.mjs`, a dependency-free Node script (Node 20+). It fails when:
+
+- a Questions answer differs from its FAQPage JSON-LD entry;
+- a term from the [Terms](#terms) table's Avoid column appears, a status pill isn't ok / warn / error / info, or a colour name isn't in Title Case (code is skipped);
+- the page has more than one `h1`, a heading inside a `button`, or JSON-LD that doesn't parse;
+- the definition, the questions, the colour names or the author are missing with JavaScript off;
+- the footer `<time>` and `lastmod` in `sitemap.xml` differ;
+- a `#anchor` or local file linked from `index.html` or this README is missing.
+
+External links are checked too, but a broken one is only a warning, so a flaky site can't block a pull request. Add `-- --offline` to skip them. `npm test` runs the script's own tests. The **Check copy** GitHub Action runs both on pull requests that touch `index.html`, `llms.txt`, `README.md`, `sitemap.xml` or `scripts/`.
 
 ## License
 
